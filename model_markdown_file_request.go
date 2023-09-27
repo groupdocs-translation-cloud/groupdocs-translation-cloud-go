@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the PdfFileRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PdfFileRequest{}
+// checks if the MarkdownFileRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MarkdownFileRequest{}
 
-// PdfFileRequest Request for PDF files
-type PdfFileRequest struct {
+// MarkdownFileRequest Request for markdown files or markdown files with Hugo syntax
+type MarkdownFileRequest struct {
 	// Language of original file
 	SourceLanguage string `json:"sourceLanguage"`
 	// List of target languages
@@ -35,40 +35,36 @@ type PdfFileRequest struct {
 	SavingMode *string `json:"savingMode,omitempty"`
 	// output file format
 	OutputFormat string `json:"outputFormat"`
-	// If document's formatting should be preserved, default true
-	PreserveFormatting *bool `json:"preserveFormatting,omitempty"`
-	// List of pages to translate
-	Pages []int32 `json:"pages,omitempty"`
+	// Dictionary of short code names and parameters names to translate
+	ShortCodeList map[string][]string `json:"shortCodeList,omitempty"`
+	// List of lists of frontmatter paths
+	FrontMatterList [][]string `json:"frontMatterList,omitempty"`
 }
 
-// NewPdfFileRequest instantiates a new PdfFileRequest object
+// NewMarkdownFileRequest instantiates a new MarkdownFileRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdfFileRequest(sourceLanguage string, targetLanguages []string, outputFormat string) *PdfFileRequest {
-	this := PdfFileRequest{}
+func NewMarkdownFileRequest(sourceLanguage string, targetLanguages []string, outputFormat string) *MarkdownFileRequest {
+	this := MarkdownFileRequest{}
 	this.SourceLanguage = sourceLanguage
 	this.TargetLanguages = targetLanguages
 	this.OutputFormat = outputFormat
-	var preserveFormatting bool = true
-	this.PreserveFormatting = &preserveFormatting
 	return &this
 }
 
-// NewPdfFileRequestWithDefaults instantiates a new PdfFileRequest object
+// NewMarkdownFileRequestWithDefaults instantiates a new MarkdownFileRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPdfFileRequestWithDefaults() *PdfFileRequest {
-	this := PdfFileRequest{}
+func NewMarkdownFileRequestWithDefaults() *MarkdownFileRequest {
+	this := MarkdownFileRequest{}
 	var sourceLanguage string = "en"
 	this.SourceLanguage = sourceLanguage
-	var preserveFormatting bool = true
-	this.PreserveFormatting = &preserveFormatting
 	return &this
 }
 
 // GetSourceLanguage returns the SourceLanguage field value
-func (o *PdfFileRequest) GetSourceLanguage() string {
+func (o *MarkdownFileRequest) GetSourceLanguage() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +75,7 @@ func (o *PdfFileRequest) GetSourceLanguage() string {
 
 // GetSourceLanguageOk returns a tuple with the SourceLanguage field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetSourceLanguageOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetSourceLanguageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,12 +83,12 @@ func (o *PdfFileRequest) GetSourceLanguageOk() (*string, bool) {
 }
 
 // SetSourceLanguage sets field value
-func (o *PdfFileRequest) SetSourceLanguage(v string) {
+func (o *MarkdownFileRequest) SetSourceLanguage(v string) {
 	o.SourceLanguage = v
 }
 
 // GetTargetLanguages returns the TargetLanguages field value
-func (o *PdfFileRequest) GetTargetLanguages() []string {
+func (o *MarkdownFileRequest) GetTargetLanguages() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -103,7 +99,7 @@ func (o *PdfFileRequest) GetTargetLanguages() []string {
 
 // GetTargetLanguagesOk returns a tuple with the TargetLanguages field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetTargetLanguagesOk() ([]string, bool) {
+func (o *MarkdownFileRequest) GetTargetLanguagesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -111,12 +107,12 @@ func (o *PdfFileRequest) GetTargetLanguagesOk() ([]string, bool) {
 }
 
 // SetTargetLanguages sets field value
-func (o *PdfFileRequest) SetTargetLanguages(v []string) {
+func (o *MarkdownFileRequest) SetTargetLanguages(v []string) {
 	o.TargetLanguages = v
 }
 
 // GetFile returns the File field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetFile() string {
+func (o *MarkdownFileRequest) GetFile() string {
 	if o == nil || IsNil(o.File.Get()) {
 		var ret string
 		return ret
@@ -127,7 +123,7 @@ func (o *PdfFileRequest) GetFile() string {
 // GetFileOk returns a tuple with the File field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetFileOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetFileOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,7 +131,7 @@ func (o *PdfFileRequest) GetFileOk() (*string, bool) {
 }
 
 // HasFile returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasFile() bool {
+func (o *MarkdownFileRequest) HasFile() bool {
 	if o != nil && o.File.IsSet() {
 		return true
 	}
@@ -144,21 +140,21 @@ func (o *PdfFileRequest) HasFile() bool {
 }
 
 // SetFile gets a reference to the given NullableString and assigns it to the File field.
-func (o *PdfFileRequest) SetFile(v string) {
+func (o *MarkdownFileRequest) SetFile(v string) {
 	o.File.Set(&v)
 }
 // SetFileNil sets the value for File to be an explicit nil
-func (o *PdfFileRequest) SetFileNil() {
+func (o *MarkdownFileRequest) SetFileNil() {
 	o.File.Set(nil)
 }
 
 // UnsetFile ensures that no value is present for File, not even an explicit nil
-func (o *PdfFileRequest) UnsetFile() {
+func (o *MarkdownFileRequest) UnsetFile() {
 	o.File.Unset()
 }
 
 // GetOriginalFileName returns the OriginalFileName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetOriginalFileName() string {
+func (o *MarkdownFileRequest) GetOriginalFileName() string {
 	if o == nil || IsNil(o.OriginalFileName.Get()) {
 		var ret string
 		return ret
@@ -169,7 +165,7 @@ func (o *PdfFileRequest) GetOriginalFileName() string {
 // GetOriginalFileNameOk returns a tuple with the OriginalFileName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetOriginalFileNameOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetOriginalFileNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -177,7 +173,7 @@ func (o *PdfFileRequest) GetOriginalFileNameOk() (*string, bool) {
 }
 
 // HasOriginalFileName returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasOriginalFileName() bool {
+func (o *MarkdownFileRequest) HasOriginalFileName() bool {
 	if o != nil && o.OriginalFileName.IsSet() {
 		return true
 	}
@@ -186,21 +182,21 @@ func (o *PdfFileRequest) HasOriginalFileName() bool {
 }
 
 // SetOriginalFileName gets a reference to the given NullableString and assigns it to the OriginalFileName field.
-func (o *PdfFileRequest) SetOriginalFileName(v string) {
+func (o *MarkdownFileRequest) SetOriginalFileName(v string) {
 	o.OriginalFileName.Set(&v)
 }
 // SetOriginalFileNameNil sets the value for OriginalFileName to be an explicit nil
-func (o *PdfFileRequest) SetOriginalFileNameNil() {
+func (o *MarkdownFileRequest) SetOriginalFileNameNil() {
 	o.OriginalFileName.Set(nil)
 }
 
 // UnsetOriginalFileName ensures that no value is present for OriginalFileName, not even an explicit nil
-func (o *PdfFileRequest) UnsetOriginalFileName() {
+func (o *MarkdownFileRequest) UnsetOriginalFileName() {
 	o.OriginalFileName.Unset()
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetUrl() string {
+func (o *MarkdownFileRequest) GetUrl() string {
 	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
@@ -211,7 +207,7 @@ func (o *PdfFileRequest) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetUrlOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -219,7 +215,7 @@ func (o *PdfFileRequest) GetUrlOk() (*string, bool) {
 }
 
 // HasUrl returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasUrl() bool {
+func (o *MarkdownFileRequest) HasUrl() bool {
 	if o != nil && o.Url.IsSet() {
 		return true
 	}
@@ -228,21 +224,21 @@ func (o *PdfFileRequest) HasUrl() bool {
 }
 
 // SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *PdfFileRequest) SetUrl(v string) {
+func (o *MarkdownFileRequest) SetUrl(v string) {
 	o.Url.Set(&v)
 }
 // SetUrlNil sets the value for Url to be an explicit nil
-func (o *PdfFileRequest) SetUrlNil() {
+func (o *MarkdownFileRequest) SetUrlNil() {
 	o.Url.Set(nil)
 }
 
 // UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *PdfFileRequest) UnsetUrl() {
+func (o *MarkdownFileRequest) UnsetUrl() {
 	o.Url.Unset()
 }
 
 // GetOrigin returns the Origin field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetOrigin() string {
+func (o *MarkdownFileRequest) GetOrigin() string {
 	if o == nil || IsNil(o.Origin.Get()) {
 		var ret string
 		return ret
@@ -253,7 +249,7 @@ func (o *PdfFileRequest) GetOrigin() string {
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetOriginOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetOriginOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -261,7 +257,7 @@ func (o *PdfFileRequest) GetOriginOk() (*string, bool) {
 }
 
 // HasOrigin returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasOrigin() bool {
+func (o *MarkdownFileRequest) HasOrigin() bool {
 	if o != nil && o.Origin.IsSet() {
 		return true
 	}
@@ -270,21 +266,21 @@ func (o *PdfFileRequest) HasOrigin() bool {
 }
 
 // SetOrigin gets a reference to the given NullableString and assigns it to the Origin field.
-func (o *PdfFileRequest) SetOrigin(v string) {
+func (o *MarkdownFileRequest) SetOrigin(v string) {
 	o.Origin.Set(&v)
 }
 // SetOriginNil sets the value for Origin to be an explicit nil
-func (o *PdfFileRequest) SetOriginNil() {
+func (o *MarkdownFileRequest) SetOriginNil() {
 	o.Origin.Set(nil)
 }
 
 // UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
-func (o *PdfFileRequest) UnsetOrigin() {
+func (o *MarkdownFileRequest) UnsetOrigin() {
 	o.Origin.Unset()
 }
 
 // GetSavingMode returns the SavingMode field value if set, zero value otherwise.
-func (o *PdfFileRequest) GetSavingMode() string {
+func (o *MarkdownFileRequest) GetSavingMode() string {
 	if o == nil || IsNil(o.SavingMode) {
 		var ret string
 		return ret
@@ -294,7 +290,7 @@ func (o *PdfFileRequest) GetSavingMode() string {
 
 // GetSavingModeOk returns a tuple with the SavingMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetSavingModeOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetSavingModeOk() (*string, bool) {
 	if o == nil || IsNil(o.SavingMode) {
 		return nil, false
 	}
@@ -302,7 +298,7 @@ func (o *PdfFileRequest) GetSavingModeOk() (*string, bool) {
 }
 
 // HasSavingMode returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasSavingMode() bool {
+func (o *MarkdownFileRequest) HasSavingMode() bool {
 	if o != nil && !IsNil(o.SavingMode) {
 		return true
 	}
@@ -311,12 +307,12 @@ func (o *PdfFileRequest) HasSavingMode() bool {
 }
 
 // SetSavingMode gets a reference to the given string and assigns it to the SavingMode field.
-func (o *PdfFileRequest) SetSavingMode(v string) {
+func (o *MarkdownFileRequest) SetSavingMode(v string) {
 	o.SavingMode = &v
 }
 
 // GetOutputFormat returns the OutputFormat field value
-func (o *PdfFileRequest) GetOutputFormat() string {
+func (o *MarkdownFileRequest) GetOutputFormat() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -327,7 +323,7 @@ func (o *PdfFileRequest) GetOutputFormat() string {
 
 // GetOutputFormatOk returns a tuple with the OutputFormat field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetOutputFormatOk() (*string, bool) {
+func (o *MarkdownFileRequest) GetOutputFormatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -335,76 +331,77 @@ func (o *PdfFileRequest) GetOutputFormatOk() (*string, bool) {
 }
 
 // SetOutputFormat sets field value
-func (o *PdfFileRequest) SetOutputFormat(v string) {
+func (o *MarkdownFileRequest) SetOutputFormat(v string) {
 	o.OutputFormat = v
 }
 
-// GetPreserveFormatting returns the PreserveFormatting field value if set, zero value otherwise.
-func (o *PdfFileRequest) GetPreserveFormatting() bool {
-	if o == nil || IsNil(o.PreserveFormatting) {
-		var ret bool
-		return ret
-	}
-	return *o.PreserveFormatting
-}
-
-// GetPreserveFormattingOk returns a tuple with the PreserveFormatting field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetPreserveFormattingOk() (*bool, bool) {
-	if o == nil || IsNil(o.PreserveFormatting) {
-		return nil, false
-	}
-	return o.PreserveFormatting, true
-}
-
-// HasPreserveFormatting returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasPreserveFormatting() bool {
-	if o != nil && !IsNil(o.PreserveFormatting) {
-		return true
-	}
-
-	return false
-}
-
-// SetPreserveFormatting gets a reference to the given bool and assigns it to the PreserveFormatting field.
-func (o *PdfFileRequest) SetPreserveFormatting(v bool) {
-	o.PreserveFormatting = &v
-}
-
-// GetPages returns the Pages field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetPages() []int32 {
+// GetShortCodeList returns the ShortCodeList field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MarkdownFileRequest) GetShortCodeList() map[string][]string {
 	if o == nil {
-		var ret []int32
+		var ret map[string][]string
 		return ret
 	}
-	return o.Pages
+	return o.ShortCodeList
 }
 
-// GetPagesOk returns a tuple with the Pages field value if set, nil otherwise
+// GetShortCodeListOk returns a tuple with the ShortCodeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetPagesOk() ([]int32, bool) {
-	if o == nil || IsNil(o.Pages) {
+func (o *MarkdownFileRequest) GetShortCodeListOk() (*map[string][]string, bool) {
+	if o == nil || IsNil(o.ShortCodeList) {
 		return nil, false
 	}
-	return o.Pages, true
+	return &o.ShortCodeList, true
 }
 
-// HasPages returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasPages() bool {
-	if o != nil && IsNil(o.Pages) {
+// HasShortCodeList returns a boolean if a field has been set.
+func (o *MarkdownFileRequest) HasShortCodeList() bool {
+	if o != nil && IsNil(o.ShortCodeList) {
 		return true
 	}
 
 	return false
 }
 
-// SetPages gets a reference to the given []int32 and assigns it to the Pages field.
-func (o *PdfFileRequest) SetPages(v []int32) {
-	o.Pages = v
+// SetShortCodeList gets a reference to the given map[string][]string and assigns it to the ShortCodeList field.
+func (o *MarkdownFileRequest) SetShortCodeList(v map[string][]string) {
+	o.ShortCodeList = v
 }
 
-func (o PdfFileRequest) MarshalJSON() ([]byte, error) {
+// GetFrontMatterList returns the FrontMatterList field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MarkdownFileRequest) GetFrontMatterList() [][]string {
+	if o == nil {
+		var ret [][]string
+		return ret
+	}
+	return o.FrontMatterList
+}
+
+// GetFrontMatterListOk returns a tuple with the FrontMatterList field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MarkdownFileRequest) GetFrontMatterListOk() ([][]string, bool) {
+	if o == nil || IsNil(o.FrontMatterList) {
+		return nil, false
+	}
+	return o.FrontMatterList, true
+}
+
+// HasFrontMatterList returns a boolean if a field has been set.
+func (o *MarkdownFileRequest) HasFrontMatterList() bool {
+	if o != nil && IsNil(o.FrontMatterList) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrontMatterList gets a reference to the given [][]string and assigns it to the FrontMatterList field.
+func (o *MarkdownFileRequest) SetFrontMatterList(v [][]string) {
+	o.FrontMatterList = v
+}
+
+func (o MarkdownFileRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -412,7 +409,7 @@ func (o PdfFileRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PdfFileRequest) ToMap() (map[string]interface{}, error) {
+func (o MarkdownFileRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sourceLanguage"] = o.SourceLanguage
 	toSerialize["targetLanguages"] = o.TargetLanguages
@@ -432,47 +429,47 @@ func (o PdfFileRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["savingMode"] = o.SavingMode
 	}
 	toSerialize["outputFormat"] = o.OutputFormat
-	if !IsNil(o.PreserveFormatting) {
-		toSerialize["preserveFormatting"] = o.PreserveFormatting
+	if o.ShortCodeList != nil {
+		toSerialize["shortCodeList"] = o.ShortCodeList
 	}
-	if o.Pages != nil {
-		toSerialize["pages"] = o.Pages
+	if o.FrontMatterList != nil {
+		toSerialize["frontMatterList"] = o.FrontMatterList
 	}
 	return toSerialize, nil
 }
 
-type NullablePdfFileRequest struct {
-	value *PdfFileRequest
+type NullableMarkdownFileRequest struct {
+	value *MarkdownFileRequest
 	isSet bool
 }
 
-func (v NullablePdfFileRequest) Get() *PdfFileRequest {
+func (v NullableMarkdownFileRequest) Get() *MarkdownFileRequest {
 	return v.value
 }
 
-func (v *NullablePdfFileRequest) Set(val *PdfFileRequest) {
+func (v *NullableMarkdownFileRequest) Set(val *MarkdownFileRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePdfFileRequest) IsSet() bool {
+func (v NullableMarkdownFileRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePdfFileRequest) Unset() {
+func (v *NullableMarkdownFileRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePdfFileRequest(val *PdfFileRequest) *NullablePdfFileRequest {
-	return &NullablePdfFileRequest{value: val, isSet: true}
+func NewNullableMarkdownFileRequest(val *MarkdownFileRequest) *NullableMarkdownFileRequest {
+	return &NullableMarkdownFileRequest{value: val, isSet: true}
 }
 
-func (v NullablePdfFileRequest) MarshalJSON() ([]byte, error) {
+func (v NullableMarkdownFileRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePdfFileRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableMarkdownFileRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

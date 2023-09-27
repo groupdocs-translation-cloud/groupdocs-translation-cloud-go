@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the PdfFileRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PdfFileRequest{}
+// checks if the ImageToFileRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ImageToFileRequest{}
 
-// PdfFileRequest Request for PDF files
-type PdfFileRequest struct {
+// ImageToFileRequest struct for ImageToFileRequest
+type ImageToFileRequest struct {
 	// Language of original file
 	SourceLanguage string `json:"sourceLanguage"`
 	// List of target languages
@@ -33,42 +33,57 @@ type PdfFileRequest struct {
 	Origin NullableString `json:"origin,omitempty"`
 	// Toggle file saving mode for storage.  Is Files by default.
 	SavingMode *string `json:"savingMode,omitempty"`
+	// Original file format
+	Format *string `json:"format,omitempty"`
+	// File format after recognition
+	Ocrformat string `json:"ocrformat"`
 	// output file format
 	OutputFormat string `json:"outputFormat"`
+	// Left to write angle to rotate scanned image / pdf
+	RotationAngle *int32 `json:"rotationAngle,omitempty"`
 	// If document's formatting should be preserved, default true
-	PreserveFormatting *bool `json:"preserveFormatting,omitempty"`
-	// List of pages to translate
+	Formatting *bool `json:"formatting,omitempty"`
+	// endpoints route
+	Route NullableString `json:"route,omitempty"`
+	// List of pages to translate for scanned pdf
 	Pages []int32 `json:"pages,omitempty"`
 }
 
-// NewPdfFileRequest instantiates a new PdfFileRequest object
+// NewImageToFileRequest instantiates a new ImageToFileRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdfFileRequest(sourceLanguage string, targetLanguages []string, outputFormat string) *PdfFileRequest {
-	this := PdfFileRequest{}
+func NewImageToFileRequest(sourceLanguage string, targetLanguages []string, ocrformat string, outputFormat string) *ImageToFileRequest {
+	this := ImageToFileRequest{}
 	this.SourceLanguage = sourceLanguage
 	this.TargetLanguages = targetLanguages
+	var format string = "Unknown"
+	this.Format = &format
+	this.Ocrformat = ocrformat
 	this.OutputFormat = outputFormat
-	var preserveFormatting bool = true
-	this.PreserveFormatting = &preserveFormatting
+	var formatting bool = true
+	this.Formatting = &formatting
 	return &this
 }
 
-// NewPdfFileRequestWithDefaults instantiates a new PdfFileRequest object
+// NewImageToFileRequestWithDefaults instantiates a new ImageToFileRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPdfFileRequestWithDefaults() *PdfFileRequest {
-	this := PdfFileRequest{}
+func NewImageToFileRequestWithDefaults() *ImageToFileRequest {
+	this := ImageToFileRequest{}
 	var sourceLanguage string = "en"
 	this.SourceLanguage = sourceLanguage
-	var preserveFormatting bool = true
-	this.PreserveFormatting = &preserveFormatting
+	var format string = "Unknown"
+	this.Format = &format
+	var ocrformat string = "Pdf"
+	this.Ocrformat = ocrformat
+	var formatting bool = true
+	this.Formatting = &formatting
 	return &this
 }
 
 // GetSourceLanguage returns the SourceLanguage field value
-func (o *PdfFileRequest) GetSourceLanguage() string {
+func (o *ImageToFileRequest) GetSourceLanguage() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +94,7 @@ func (o *PdfFileRequest) GetSourceLanguage() string {
 
 // GetSourceLanguageOk returns a tuple with the SourceLanguage field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetSourceLanguageOk() (*string, bool) {
+func (o *ImageToFileRequest) GetSourceLanguageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,12 +102,12 @@ func (o *PdfFileRequest) GetSourceLanguageOk() (*string, bool) {
 }
 
 // SetSourceLanguage sets field value
-func (o *PdfFileRequest) SetSourceLanguage(v string) {
+func (o *ImageToFileRequest) SetSourceLanguage(v string) {
 	o.SourceLanguage = v
 }
 
 // GetTargetLanguages returns the TargetLanguages field value
-func (o *PdfFileRequest) GetTargetLanguages() []string {
+func (o *ImageToFileRequest) GetTargetLanguages() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -103,7 +118,7 @@ func (o *PdfFileRequest) GetTargetLanguages() []string {
 
 // GetTargetLanguagesOk returns a tuple with the TargetLanguages field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetTargetLanguagesOk() ([]string, bool) {
+func (o *ImageToFileRequest) GetTargetLanguagesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -111,12 +126,12 @@ func (o *PdfFileRequest) GetTargetLanguagesOk() ([]string, bool) {
 }
 
 // SetTargetLanguages sets field value
-func (o *PdfFileRequest) SetTargetLanguages(v []string) {
+func (o *ImageToFileRequest) SetTargetLanguages(v []string) {
 	o.TargetLanguages = v
 }
 
 // GetFile returns the File field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetFile() string {
+func (o *ImageToFileRequest) GetFile() string {
 	if o == nil || IsNil(o.File.Get()) {
 		var ret string
 		return ret
@@ -127,7 +142,7 @@ func (o *PdfFileRequest) GetFile() string {
 // GetFileOk returns a tuple with the File field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetFileOk() (*string, bool) {
+func (o *ImageToFileRequest) GetFileOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,7 +150,7 @@ func (o *PdfFileRequest) GetFileOk() (*string, bool) {
 }
 
 // HasFile returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasFile() bool {
+func (o *ImageToFileRequest) HasFile() bool {
 	if o != nil && o.File.IsSet() {
 		return true
 	}
@@ -144,21 +159,21 @@ func (o *PdfFileRequest) HasFile() bool {
 }
 
 // SetFile gets a reference to the given NullableString and assigns it to the File field.
-func (o *PdfFileRequest) SetFile(v string) {
+func (o *ImageToFileRequest) SetFile(v string) {
 	o.File.Set(&v)
 }
 // SetFileNil sets the value for File to be an explicit nil
-func (o *PdfFileRequest) SetFileNil() {
+func (o *ImageToFileRequest) SetFileNil() {
 	o.File.Set(nil)
 }
 
 // UnsetFile ensures that no value is present for File, not even an explicit nil
-func (o *PdfFileRequest) UnsetFile() {
+func (o *ImageToFileRequest) UnsetFile() {
 	o.File.Unset()
 }
 
 // GetOriginalFileName returns the OriginalFileName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetOriginalFileName() string {
+func (o *ImageToFileRequest) GetOriginalFileName() string {
 	if o == nil || IsNil(o.OriginalFileName.Get()) {
 		var ret string
 		return ret
@@ -169,7 +184,7 @@ func (o *PdfFileRequest) GetOriginalFileName() string {
 // GetOriginalFileNameOk returns a tuple with the OriginalFileName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetOriginalFileNameOk() (*string, bool) {
+func (o *ImageToFileRequest) GetOriginalFileNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -177,7 +192,7 @@ func (o *PdfFileRequest) GetOriginalFileNameOk() (*string, bool) {
 }
 
 // HasOriginalFileName returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasOriginalFileName() bool {
+func (o *ImageToFileRequest) HasOriginalFileName() bool {
 	if o != nil && o.OriginalFileName.IsSet() {
 		return true
 	}
@@ -186,21 +201,21 @@ func (o *PdfFileRequest) HasOriginalFileName() bool {
 }
 
 // SetOriginalFileName gets a reference to the given NullableString and assigns it to the OriginalFileName field.
-func (o *PdfFileRequest) SetOriginalFileName(v string) {
+func (o *ImageToFileRequest) SetOriginalFileName(v string) {
 	o.OriginalFileName.Set(&v)
 }
 // SetOriginalFileNameNil sets the value for OriginalFileName to be an explicit nil
-func (o *PdfFileRequest) SetOriginalFileNameNil() {
+func (o *ImageToFileRequest) SetOriginalFileNameNil() {
 	o.OriginalFileName.Set(nil)
 }
 
 // UnsetOriginalFileName ensures that no value is present for OriginalFileName, not even an explicit nil
-func (o *PdfFileRequest) UnsetOriginalFileName() {
+func (o *ImageToFileRequest) UnsetOriginalFileName() {
 	o.OriginalFileName.Unset()
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetUrl() string {
+func (o *ImageToFileRequest) GetUrl() string {
 	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
@@ -211,7 +226,7 @@ func (o *PdfFileRequest) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetUrlOk() (*string, bool) {
+func (o *ImageToFileRequest) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -219,7 +234,7 @@ func (o *PdfFileRequest) GetUrlOk() (*string, bool) {
 }
 
 // HasUrl returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasUrl() bool {
+func (o *ImageToFileRequest) HasUrl() bool {
 	if o != nil && o.Url.IsSet() {
 		return true
 	}
@@ -228,21 +243,21 @@ func (o *PdfFileRequest) HasUrl() bool {
 }
 
 // SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *PdfFileRequest) SetUrl(v string) {
+func (o *ImageToFileRequest) SetUrl(v string) {
 	o.Url.Set(&v)
 }
 // SetUrlNil sets the value for Url to be an explicit nil
-func (o *PdfFileRequest) SetUrlNil() {
+func (o *ImageToFileRequest) SetUrlNil() {
 	o.Url.Set(nil)
 }
 
 // UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *PdfFileRequest) UnsetUrl() {
+func (o *ImageToFileRequest) UnsetUrl() {
 	o.Url.Unset()
 }
 
 // GetOrigin returns the Origin field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetOrigin() string {
+func (o *ImageToFileRequest) GetOrigin() string {
 	if o == nil || IsNil(o.Origin.Get()) {
 		var ret string
 		return ret
@@ -253,7 +268,7 @@ func (o *PdfFileRequest) GetOrigin() string {
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetOriginOk() (*string, bool) {
+func (o *ImageToFileRequest) GetOriginOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -261,7 +276,7 @@ func (o *PdfFileRequest) GetOriginOk() (*string, bool) {
 }
 
 // HasOrigin returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasOrigin() bool {
+func (o *ImageToFileRequest) HasOrigin() bool {
 	if o != nil && o.Origin.IsSet() {
 		return true
 	}
@@ -270,21 +285,21 @@ func (o *PdfFileRequest) HasOrigin() bool {
 }
 
 // SetOrigin gets a reference to the given NullableString and assigns it to the Origin field.
-func (o *PdfFileRequest) SetOrigin(v string) {
+func (o *ImageToFileRequest) SetOrigin(v string) {
 	o.Origin.Set(&v)
 }
 // SetOriginNil sets the value for Origin to be an explicit nil
-func (o *PdfFileRequest) SetOriginNil() {
+func (o *ImageToFileRequest) SetOriginNil() {
 	o.Origin.Set(nil)
 }
 
 // UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
-func (o *PdfFileRequest) UnsetOrigin() {
+func (o *ImageToFileRequest) UnsetOrigin() {
 	o.Origin.Unset()
 }
 
 // GetSavingMode returns the SavingMode field value if set, zero value otherwise.
-func (o *PdfFileRequest) GetSavingMode() string {
+func (o *ImageToFileRequest) GetSavingMode() string {
 	if o == nil || IsNil(o.SavingMode) {
 		var ret string
 		return ret
@@ -294,7 +309,7 @@ func (o *PdfFileRequest) GetSavingMode() string {
 
 // GetSavingModeOk returns a tuple with the SavingMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetSavingModeOk() (*string, bool) {
+func (o *ImageToFileRequest) GetSavingModeOk() (*string, bool) {
 	if o == nil || IsNil(o.SavingMode) {
 		return nil, false
 	}
@@ -302,7 +317,7 @@ func (o *PdfFileRequest) GetSavingModeOk() (*string, bool) {
 }
 
 // HasSavingMode returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasSavingMode() bool {
+func (o *ImageToFileRequest) HasSavingMode() bool {
 	if o != nil && !IsNil(o.SavingMode) {
 		return true
 	}
@@ -311,12 +326,68 @@ func (o *PdfFileRequest) HasSavingMode() bool {
 }
 
 // SetSavingMode gets a reference to the given string and assigns it to the SavingMode field.
-func (o *PdfFileRequest) SetSavingMode(v string) {
+func (o *ImageToFileRequest) SetSavingMode(v string) {
 	o.SavingMode = &v
 }
 
+// GetFormat returns the Format field value if set, zero value otherwise.
+func (o *ImageToFileRequest) GetFormat() string {
+	if o == nil || IsNil(o.Format) {
+		var ret string
+		return ret
+	}
+	return *o.Format
+}
+
+// GetFormatOk returns a tuple with the Format field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageToFileRequest) GetFormatOk() (*string, bool) {
+	if o == nil || IsNil(o.Format) {
+		return nil, false
+	}
+	return o.Format, true
+}
+
+// HasFormat returns a boolean if a field has been set.
+func (o *ImageToFileRequest) HasFormat() bool {
+	if o != nil && !IsNil(o.Format) {
+		return true
+	}
+
+	return false
+}
+
+// SetFormat gets a reference to the given string and assigns it to the Format field.
+func (o *ImageToFileRequest) SetFormat(v string) {
+	o.Format = &v
+}
+
+// GetOcrformat returns the Ocrformat field value
+func (o *ImageToFileRequest) GetOcrformat() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Ocrformat
+}
+
+// GetOcrformatOk returns a tuple with the Ocrformat field value
+// and a boolean to check if the value has been set.
+func (o *ImageToFileRequest) GetOcrformatOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Ocrformat, true
+}
+
+// SetOcrformat sets field value
+func (o *ImageToFileRequest) SetOcrformat(v string) {
+	o.Ocrformat = v
+}
+
 // GetOutputFormat returns the OutputFormat field value
-func (o *PdfFileRequest) GetOutputFormat() string {
+func (o *ImageToFileRequest) GetOutputFormat() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -327,7 +398,7 @@ func (o *PdfFileRequest) GetOutputFormat() string {
 
 // GetOutputFormatOk returns a tuple with the OutputFormat field value
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetOutputFormatOk() (*string, bool) {
+func (o *ImageToFileRequest) GetOutputFormatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -335,44 +406,118 @@ func (o *PdfFileRequest) GetOutputFormatOk() (*string, bool) {
 }
 
 // SetOutputFormat sets field value
-func (o *PdfFileRequest) SetOutputFormat(v string) {
+func (o *ImageToFileRequest) SetOutputFormat(v string) {
 	o.OutputFormat = v
 }
 
-// GetPreserveFormatting returns the PreserveFormatting field value if set, zero value otherwise.
-func (o *PdfFileRequest) GetPreserveFormatting() bool {
-	if o == nil || IsNil(o.PreserveFormatting) {
-		var ret bool
+// GetRotationAngle returns the RotationAngle field value if set, zero value otherwise.
+func (o *ImageToFileRequest) GetRotationAngle() int32 {
+	if o == nil || IsNil(o.RotationAngle) {
+		var ret int32
 		return ret
 	}
-	return *o.PreserveFormatting
+	return *o.RotationAngle
 }
 
-// GetPreserveFormattingOk returns a tuple with the PreserveFormatting field value if set, nil otherwise
+// GetRotationAngleOk returns a tuple with the RotationAngle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdfFileRequest) GetPreserveFormattingOk() (*bool, bool) {
-	if o == nil || IsNil(o.PreserveFormatting) {
+func (o *ImageToFileRequest) GetRotationAngleOk() (*int32, bool) {
+	if o == nil || IsNil(o.RotationAngle) {
 		return nil, false
 	}
-	return o.PreserveFormatting, true
+	return o.RotationAngle, true
 }
 
-// HasPreserveFormatting returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasPreserveFormatting() bool {
-	if o != nil && !IsNil(o.PreserveFormatting) {
+// HasRotationAngle returns a boolean if a field has been set.
+func (o *ImageToFileRequest) HasRotationAngle() bool {
+	if o != nil && !IsNil(o.RotationAngle) {
 		return true
 	}
 
 	return false
 }
 
-// SetPreserveFormatting gets a reference to the given bool and assigns it to the PreserveFormatting field.
-func (o *PdfFileRequest) SetPreserveFormatting(v bool) {
-	o.PreserveFormatting = &v
+// SetRotationAngle gets a reference to the given int32 and assigns it to the RotationAngle field.
+func (o *ImageToFileRequest) SetRotationAngle(v int32) {
+	o.RotationAngle = &v
+}
+
+// GetFormatting returns the Formatting field value if set, zero value otherwise.
+func (o *ImageToFileRequest) GetFormatting() bool {
+	if o == nil || IsNil(o.Formatting) {
+		var ret bool
+		return ret
+	}
+	return *o.Formatting
+}
+
+// GetFormattingOk returns a tuple with the Formatting field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageToFileRequest) GetFormattingOk() (*bool, bool) {
+	if o == nil || IsNil(o.Formatting) {
+		return nil, false
+	}
+	return o.Formatting, true
+}
+
+// HasFormatting returns a boolean if a field has been set.
+func (o *ImageToFileRequest) HasFormatting() bool {
+	if o != nil && !IsNil(o.Formatting) {
+		return true
+	}
+
+	return false
+}
+
+// SetFormatting gets a reference to the given bool and assigns it to the Formatting field.
+func (o *ImageToFileRequest) SetFormatting(v bool) {
+	o.Formatting = &v
+}
+
+// GetRoute returns the Route field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageToFileRequest) GetRoute() string {
+	if o == nil || IsNil(o.Route.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Route.Get()
+}
+
+// GetRouteOk returns a tuple with the Route field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageToFileRequest) GetRouteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Route.Get(), o.Route.IsSet()
+}
+
+// HasRoute returns a boolean if a field has been set.
+func (o *ImageToFileRequest) HasRoute() bool {
+	if o != nil && o.Route.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRoute gets a reference to the given NullableString and assigns it to the Route field.
+func (o *ImageToFileRequest) SetRoute(v string) {
+	o.Route.Set(&v)
+}
+// SetRouteNil sets the value for Route to be an explicit nil
+func (o *ImageToFileRequest) SetRouteNil() {
+	o.Route.Set(nil)
+}
+
+// UnsetRoute ensures that no value is present for Route, not even an explicit nil
+func (o *ImageToFileRequest) UnsetRoute() {
+	o.Route.Unset()
 }
 
 // GetPages returns the Pages field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdfFileRequest) GetPages() []int32 {
+func (o *ImageToFileRequest) GetPages() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -383,7 +528,7 @@ func (o *PdfFileRequest) GetPages() []int32 {
 // GetPagesOk returns a tuple with the Pages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdfFileRequest) GetPagesOk() ([]int32, bool) {
+func (o *ImageToFileRequest) GetPagesOk() ([]int32, bool) {
 	if o == nil || IsNil(o.Pages) {
 		return nil, false
 	}
@@ -391,7 +536,7 @@ func (o *PdfFileRequest) GetPagesOk() ([]int32, bool) {
 }
 
 // HasPages returns a boolean if a field has been set.
-func (o *PdfFileRequest) HasPages() bool {
+func (o *ImageToFileRequest) HasPages() bool {
 	if o != nil && IsNil(o.Pages) {
 		return true
 	}
@@ -400,11 +545,11 @@ func (o *PdfFileRequest) HasPages() bool {
 }
 
 // SetPages gets a reference to the given []int32 and assigns it to the Pages field.
-func (o *PdfFileRequest) SetPages(v []int32) {
+func (o *ImageToFileRequest) SetPages(v []int32) {
 	o.Pages = v
 }
 
-func (o PdfFileRequest) MarshalJSON() ([]byte, error) {
+func (o ImageToFileRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -412,7 +557,7 @@ func (o PdfFileRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PdfFileRequest) ToMap() (map[string]interface{}, error) {
+func (o ImageToFileRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sourceLanguage"] = o.SourceLanguage
 	toSerialize["targetLanguages"] = o.TargetLanguages
@@ -431,9 +576,19 @@ func (o PdfFileRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SavingMode) {
 		toSerialize["savingMode"] = o.SavingMode
 	}
+	if !IsNil(o.Format) {
+		toSerialize["format"] = o.Format
+	}
+	toSerialize["ocrformat"] = o.Ocrformat
 	toSerialize["outputFormat"] = o.OutputFormat
-	if !IsNil(o.PreserveFormatting) {
-		toSerialize["preserveFormatting"] = o.PreserveFormatting
+	if !IsNil(o.RotationAngle) {
+		toSerialize["rotationAngle"] = o.RotationAngle
+	}
+	if !IsNil(o.Formatting) {
+		toSerialize["formatting"] = o.Formatting
+	}
+	if o.Route.IsSet() {
+		toSerialize["route"] = o.Route.Get()
 	}
 	if o.Pages != nil {
 		toSerialize["pages"] = o.Pages
@@ -441,38 +596,38 @@ func (o PdfFileRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullablePdfFileRequest struct {
-	value *PdfFileRequest
+type NullableImageToFileRequest struct {
+	value *ImageToFileRequest
 	isSet bool
 }
 
-func (v NullablePdfFileRequest) Get() *PdfFileRequest {
+func (v NullableImageToFileRequest) Get() *ImageToFileRequest {
 	return v.value
 }
 
-func (v *NullablePdfFileRequest) Set(val *PdfFileRequest) {
+func (v *NullableImageToFileRequest) Set(val *ImageToFileRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePdfFileRequest) IsSet() bool {
+func (v NullableImageToFileRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePdfFileRequest) Unset() {
+func (v *NullableImageToFileRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePdfFileRequest(val *PdfFileRequest) *NullablePdfFileRequest {
-	return &NullablePdfFileRequest{value: val, isSet: true}
+func NewNullableImageToFileRequest(val *ImageToFileRequest) *NullableImageToFileRequest {
+	return &NullableImageToFileRequest{value: val, isSet: true}
 }
 
-func (v NullablePdfFileRequest) MarshalJSON() ([]byte, error) {
+func (v NullableImageToFileRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePdfFileRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableImageToFileRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

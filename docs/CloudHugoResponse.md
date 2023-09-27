@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
 **Message** | Pointer to **NullableString** | If file was parsed correctly or text of error | [optional] 
 **Frontmatters** | Pointer to **[][]string** | Structure of front matter syntax | [optional] 
-**Shortcodes** | Pointer to **[][]string** | Structure of short code syntax | [optional] 
+**Shortcodes** | Pointer to [**map[string][][]string**](array.md) | Structure of short code syntax | [optional] 
 
 ## Methods
 
@@ -125,20 +125,20 @@ HasFrontmatters returns a boolean if a field has been set.
 UnsetFrontmatters ensures that no value is present for Frontmatters, not even an explicit nil
 ### GetShortcodes
 
-`func (o *CloudHugoResponse) GetShortcodes() [][]string`
+`func (o *CloudHugoResponse) GetShortcodes() map[string][][]string`
 
 GetShortcodes returns the Shortcodes field if non-nil, zero value otherwise.
 
 ### GetShortcodesOk
 
-`func (o *CloudHugoResponse) GetShortcodesOk() (*[][]string, bool)`
+`func (o *CloudHugoResponse) GetShortcodesOk() (*map[string][][]string, bool)`
 
 GetShortcodesOk returns a tuple with the Shortcodes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetShortcodes
 
-`func (o *CloudHugoResponse) SetShortcodes(v [][]string)`
+`func (o *CloudHugoResponse) SetShortcodes(v map[string][][]string)`
 
 SetShortcodes sets Shortcodes field to given value.
 
