@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **OutputFormat** | **string** | output file format | 
 **PreserveFormatting** | Pointer to **bool** | If document&#39;s formatting should be preserved, default true | [optional] [default to true]
 **Origin** | Pointer to **NullableString** | for analysis only | [optional] 
+**Pages** | Pointer to **[]int32** | Choose pages for translation (1-based index). If not present, translate all pages | [optional] 
 
 ## Methods
 
@@ -304,6 +305,41 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *TextDocumentFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetPages
+
+`func (o *TextDocumentFileRequest) GetPages() []int32`
+
+GetPages returns the Pages field if non-nil, zero value otherwise.
+
+### GetPagesOk
+
+`func (o *TextDocumentFileRequest) GetPagesOk() (*[]int32, bool)`
+
+GetPagesOk returns a tuple with the Pages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPages
+
+`func (o *TextDocumentFileRequest) SetPages(v []int32)`
+
+SetPages sets Pages field to given value.
+
+### HasPages
+
+`func (o *TextDocumentFileRequest) HasPages() bool`
+
+HasPages returns a boolean if a field has been set.
+
+### SetPagesNil
+
+`func (o *TextDocumentFileRequest) SetPagesNil(b bool)`
+
+ SetPagesNil sets the value for Pages to be an explicit nil
+
+### UnsetPages
+`func (o *TextDocumentFileRequest) UnsetPages()`
+
+UnsetPages ensures that no value is present for Pages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

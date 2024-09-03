@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **Format** | **string** | Input file format | [default to "Xlsx"]
 **OutputFormat** | **string** | output file format | 
-**Worksheets** | Pointer to **[]int32** | List of Worksheets to translate by sequence number | [optional] 
+**Worksheets** | Pointer to **[]int32** | List of Worksheets to translate by sequence number (1-based index). If not present, translate all worksheets | [optional] 
 **Ranges** | Pointer to [**map[string]WorksheetData**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
 
 ## Methods

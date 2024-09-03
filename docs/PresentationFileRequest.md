@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Format** | Pointer to **string** | Input file format | [optional] [default to "Pptx"]
 **OutputFormat** | Pointer to **string** | Output file format | [optional] 
 **Masters** | Pointer to **bool** | If translate master slides | [optional] [default to false]
-**Slides** | Pointer to **[]int32** | List of slides to translate | [optional] 
+**Slides** | Pointer to **[]int32** | List of slides to translate (1-based index). If not present, translate all slides | [optional] 
 
 ## Methods
 

@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **Formatting** | Pointer to **bool** | If document&#39;s formatting should be preserved, default true | [optional] [default to true]
 **Route** | Pointer to **NullableString** | Endpoint route | [optional] 
 **Separator** | Pointer to **NullableString** | Separator in files | [optional] 
-**Elements** | Pointer to **[]int32** | List of slides to translate | [optional] 
+**Elements** | Pointer to **[]int32** | List of slides to translate (1-based index). If not present, translate all elements (page, slide, worksheet) | [optional] 
 **Ranges** | Pointer to [**map[string]WorksheetData**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
-**ShortCodeList** | Pointer to **map[string][]string** | Dictionary of short code names and parameters names to translate | [optional] 
+**Shortcodedict** | Pointer to **map[string][]string** | Dictionary of short code names and parameters names to translate | [optional] 
 **FrontMatterList** | Pointer to **[][]string** | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional] 
 
 ## Methods
@@ -496,41 +496,41 @@ HasRanges returns a boolean if a field has been set.
 `func (o *FileRequest) UnsetRanges()`
 
 UnsetRanges ensures that no value is present for Ranges, not even an explicit nil
-### GetShortCodeList
+### GetShortcodedict
 
-`func (o *FileRequest) GetShortCodeList() map[string][]string`
+`func (o *FileRequest) GetShortcodedict() map[string][]string`
 
-GetShortCodeList returns the ShortCodeList field if non-nil, zero value otherwise.
+GetShortcodedict returns the Shortcodedict field if non-nil, zero value otherwise.
 
-### GetShortCodeListOk
+### GetShortcodedictOk
 
-`func (o *FileRequest) GetShortCodeListOk() (*map[string][]string, bool)`
+`func (o *FileRequest) GetShortcodedictOk() (*map[string][]string, bool)`
 
-GetShortCodeListOk returns a tuple with the ShortCodeList field if it's non-nil, zero value otherwise
+GetShortcodedictOk returns a tuple with the Shortcodedict field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetShortCodeList
+### SetShortcodedict
 
-`func (o *FileRequest) SetShortCodeList(v map[string][]string)`
+`func (o *FileRequest) SetShortcodedict(v map[string][]string)`
 
-SetShortCodeList sets ShortCodeList field to given value.
+SetShortcodedict sets Shortcodedict field to given value.
 
-### HasShortCodeList
+### HasShortcodedict
 
-`func (o *FileRequest) HasShortCodeList() bool`
+`func (o *FileRequest) HasShortcodedict() bool`
 
-HasShortCodeList returns a boolean if a field has been set.
+HasShortcodedict returns a boolean if a field has been set.
 
-### SetShortCodeListNil
+### SetShortcodedictNil
 
-`func (o *FileRequest) SetShortCodeListNil(b bool)`
+`func (o *FileRequest) SetShortcodedictNil(b bool)`
 
- SetShortCodeListNil sets the value for ShortCodeList to be an explicit nil
+ SetShortcodedictNil sets the value for Shortcodedict to be an explicit nil
 
-### UnsetShortCodeList
-`func (o *FileRequest) UnsetShortCodeList()`
+### UnsetShortcodedict
+`func (o *FileRequest) UnsetShortcodedict()`
 
-UnsetShortCodeList ensures that no value is present for ShortCodeList, not even an explicit nil
+UnsetShortcodedict ensures that no value is present for Shortcodedict, not even an explicit nil
 ### GetFrontMatterList
 
 `func (o *FileRequest) GetFrontMatterList() [][]string`

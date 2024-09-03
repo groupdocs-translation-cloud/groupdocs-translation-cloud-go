@@ -1,30 +1,33 @@
-# \TranslationApi
+# \TranslationAPI
 
 All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AutoPost**](TranslationApi.md#AutoPost) | **Post** /auto | Translate any supported file
-[**CsvPost**](TranslationApi.md#CsvPost) | **Post** /csv | Translate CSV and TSV files
-[**DocumentPost**](TranslationApi.md#DocumentPost) | **Post** /document | Translate Microsoft Word documents, rtf, txt, odt
-[**DocumentRequestIdGet**](TranslationApi.md#DocumentRequestIdGet) | **Get** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful
-[**DocumentTrialPost**](TranslationApi.md#DocumentTrialPost) | **Post** /document/trial | Trial translate Microsoft Word documents, rtf, txt, odt without conversation. Translate only first page or 1000 symbols.
-[**HcGet**](TranslationApi.md#HcGet) | **Get** /hc | Health check for all services.
-[**HtmlPost**](TranslationApi.md#HtmlPost) | **Post** /html | Translate HTML files
-[**HugoGet**](TranslationApi.md#HugoGet) | **Get** /hugo | Get hugo syntax structure from markdown file
-[**HugoPost**](TranslationApi.md#HugoPost) | **Post** /hugo | Run hugo syntax structure analyzing from markdown file
-[**ImageToFilePost**](TranslationApi.md#ImageToFilePost) | **Post** /image-to-file | Translate image or scanned pdf and return file
-[**ImageToTextPost**](TranslationApi.md#ImageToTextPost) | **Post** /image-to-text | Translate text on image or scanned pdf
-[**LanguagesGet**](TranslationApi.md#LanguagesGet) | **Get** /languages | Return list of available language pairs
-[**MarkdownPost**](TranslationApi.md#MarkdownPost) | **Post** /markdown | Translate Markdown files
-[**PdfPost**](TranslationApi.md#PdfPost) | **Post** /pdf | Translate pdf files
-[**PdfTrialPost**](TranslationApi.md#PdfTrialPost) | **Post** /pdf/trial | Trial pdf translation. Translate only first page without conversion to another format.
-[**PresentationPost**](TranslationApi.md#PresentationPost) | **Post** /presentation | Translate Microsoft PowerPoint presentations, odp
-[**ResxPost**](TranslationApi.md#ResxPost) | **Post** /resx | Translate RESX files
-[**SpreadsheetPost**](TranslationApi.md#SpreadsheetPost) | **Post** /spreadsheet | Translate Microsoft Excel workbooks, ods
-[**TextPost**](TranslationApi.md#TextPost) | **Post** /text | Translate text
-[**TextRequestIdGet**](TranslationApi.md#TextRequestIdGet) | **Get** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful
-[**TextTrialPost**](TranslationApi.md#TextTrialPost) | **Post** /text/trial | Trial translate text. Translate only 1000 symbols.
+[**AutoPost**](TranslationAPI.md#AutoPost) | **Post** /auto | Translate any supported file
+[**CsvPost**](TranslationAPI.md#CsvPost) | **Post** /csv | Translate CSV and TSV files
+[**DocumentPost**](TranslationAPI.md#DocumentPost) | **Post** /document | Translate Microsoft Word documents, rtf, txt, odt
+[**DocumentRequestIdGet**](TranslationAPI.md#DocumentRequestIdGet) | **Get** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful
+[**DocumentTrialGet**](TranslationAPI.md#DocumentTrialGet) | **Get** /document/trial | Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
+[**DocumentTrialPost**](TranslationAPI.md#DocumentTrialPost) | **Post** /document/trial | Trial translate Microsoft Word documents, rtf, txt, odt without conversation. Translate only first page or 1000 symbols.
+[**HcGet**](TranslationAPI.md#HcGet) | **Get** /hc | Health check for all services.
+[**HtmlPost**](TranslationAPI.md#HtmlPost) | **Post** /html | Translate HTML files
+[**HugoGet**](TranslationAPI.md#HugoGet) | **Get** /hugo | Get hugo syntax structure from markdown file
+[**HugoPost**](TranslationAPI.md#HugoPost) | **Post** /hugo | Run hugo syntax structure analyzing from markdown file
+[**ImageToFilePost**](TranslationAPI.md#ImageToFilePost) | **Post** /image-to-file | Translate image or scanned pdf and return file
+[**ImageToTextPost**](TranslationAPI.md#ImageToTextPost) | **Post** /image-to-text | Translate text on image or scanned pdf
+[**LanguagesGet**](TranslationAPI.md#LanguagesGet) | **Get** /languages | Return list of available language pairs
+[**MarkdownPost**](TranslationAPI.md#MarkdownPost) | **Post** /markdown | Translate Markdown files
+[**PdfPost**](TranslationAPI.md#PdfPost) | **Post** /pdf | Translate pdf files
+[**PdfTrialPost**](TranslationAPI.md#PdfTrialPost) | **Post** /pdf/trial | Trial pdf translation. Translate only first page without conversion to another format.
+[**PresentationPost**](TranslationAPI.md#PresentationPost) | **Post** /presentation | Translate Microsoft PowerPoint presentations, odp
+[**ResxPost**](TranslationAPI.md#ResxPost) | **Post** /resx | Translate Resx files
+[**SpreadsheetPost**](TranslationAPI.md#SpreadsheetPost) | **Post** /spreadsheet | Translate Microsoft Excel workbooks, ods
+[**SrtPost**](TranslationAPI.md#SrtPost) | **Post** /srt | Translate Srt files
+[**TextPost**](TranslationAPI.md#TextPost) | **Post** /text | Translate text
+[**TextRequestIdGet**](TranslationAPI.md#TextRequestIdGet) | **Get** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful
+[**TextTrialGet**](TranslationAPI.md#TextTrialGet) | **Get** /text/trial | Return text translation status for trial requests.  Also return translated text if translation was successful
+[**TextTrialPost**](TranslationAPI.md#TextTrialPost) | **Post** /text/trial | Trial translate text. Translate only 1000 symbols.
 
 
 
@@ -51,13 +54,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.AutoPost(context.Background()).FileRequest(fileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.AutoPost(context.Background()).FileRequest(fileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.AutoPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.AutoPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AutoPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.AutoPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.AutoPost`: %v\n", resp)
 }
 ```
 
@@ -111,17 +114,17 @@ import (
 )
 
 func main() {
-    csvFileRequest := *openapiclient.NewCsvFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutFormat_example") // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
+    csvFileRequest := *openapiclient.NewCsvFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutputFormat_example") // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.CsvPost(context.Background()).CsvFileRequest(csvFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.CsvPost(context.Background()).CsvFileRequest(csvFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.CsvPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.CsvPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CsvPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.CsvPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.CsvPost`: %v\n", resp)
 }
 ```
 
@@ -179,13 +182,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.DocumentPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.DocumentPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.DocumentPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.DocumentPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DocumentPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.DocumentPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.DocumentPost`: %v\n", resp)
 }
 ```
 
@@ -239,17 +242,17 @@ import (
 )
 
 func main() {
-    requestId := "requestId_example" // string | GUID which got from /v3/translation/document response
+    requestId := "requestId_example" // string | GUID which got from /translation/document response
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.DocumentRequestIdGet(context.Background(), requestId).Execute()
+    resp, r, err := apiClient.TranslationAPI.DocumentRequestIdGet(context.Background(), requestId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.DocumentRequestIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.DocumentRequestIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DocumentRequestIdGet`: CloudFileResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.DocumentRequestIdGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.DocumentRequestIdGet`: %v\n", resp)
 }
 ```
 
@@ -259,7 +262,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestId** | **string** | GUID which got from /v3/translation/document response | 
+**requestId** | **string** | GUID which got from /translation/document response | 
 
 ### Other Parameters
 
@@ -269,6 +272,70 @@ Other parameters are passed through a pointer to a apiDocumentRequestIdGetReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+### Return type
+
+[**CloudFileResponse**](CloudFileResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DocumentTrialGet
+
+> CloudFileResponse DocumentTrialGet(ctx).RequestId(requestId).Execute()
+
+Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    asposeocrcloud "github.com/aspose-ocr-cloud/aspose-ocr-cloud-go"
+)
+
+func main() {
+    requestId := "requestId_example" // string | GUID which got from /v3/translation/document response (optional)
+
+    configuration := asposeocrcloud.NewConfiguration()
+    apiClient := asposeocrcloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.TranslationAPI.DocumentTrialGet(context.Background()).RequestId(requestId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.DocumentTrialGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DocumentTrialGet`: CloudFileResponse
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.DocumentTrialGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDocumentTrialGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestId** | **string** | GUID which got from /v3/translation/document response | 
 
 ### Return type
 
@@ -311,13 +378,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.DocumentTrialPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.DocumentTrialPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.DocumentTrialPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.DocumentTrialPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DocumentTrialPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.DocumentTrialPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.DocumentTrialPost`: %v\n", resp)
 }
 ```
 
@@ -374,13 +441,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.HcGet(context.Background()).Execute()
+    resp, r, err := apiClient.TranslationAPI.HcGet(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.HcGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.HcGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HcGet`: HealthCheckStatus
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.HcGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.HcGet`: %v\n", resp)
 }
 ```
 
@@ -434,13 +501,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.HtmlPost(context.Background()).HtmlFileRequest(htmlFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.HtmlPost(context.Background()).HtmlFileRequest(htmlFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.HtmlPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.HtmlPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HtmlPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.HtmlPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.HtmlPost`: %v\n", resp)
 }
 ```
 
@@ -498,13 +565,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.HugoGet(context.Background()).Id(id).Execute()
+    resp, r, err := apiClient.TranslationAPI.HugoGet(context.Background()).Id(id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.HugoGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.HugoGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HugoGet`: CloudHugoResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.HugoGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.HugoGet`: %v\n", resp)
 }
 ```
 
@@ -562,13 +629,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.HugoPost(context.Background()).HugoRequest(hugoRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.HugoPost(context.Background()).HugoRequest(hugoRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.HugoPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.HugoPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `HugoPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.HugoPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.HugoPost`: %v\n", resp)
 }
 ```
 
@@ -626,13 +693,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.ImageToFilePost(context.Background()).ImageToFileRequest(imageToFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.ImageToFilePost(context.Background()).ImageToFileRequest(imageToFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.ImageToFilePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.ImageToFilePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ImageToFilePost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.ImageToFilePost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.ImageToFilePost`: %v\n", resp)
 }
 ```
 
@@ -690,13 +757,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.ImageToTextPost(context.Background()).ImageToTextRequest(imageToTextRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.ImageToTextPost(context.Background()).ImageToTextRequest(imageToTextRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.ImageToTextPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.ImageToTextPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ImageToTextPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.ImageToTextPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.ImageToTextPost`: %v\n", resp)
 }
 ```
 
@@ -753,13 +820,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.LanguagesGet(context.Background()).Execute()
+    resp, r, err := apiClient.TranslationAPI.LanguagesGet(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.LanguagesGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.LanguagesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LanguagesGet`: []LanguagePairData
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.LanguagesGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.LanguagesGet`: %v\n", resp)
 }
 ```
 
@@ -813,13 +880,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.MarkdownPost(context.Background()).MarkdownFileRequest(markdownFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.MarkdownPost(context.Background()).MarkdownFileRequest(markdownFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.MarkdownPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.MarkdownPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `MarkdownPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.MarkdownPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.MarkdownPost`: %v\n", resp)
 }
 ```
 
@@ -877,13 +944,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.PdfPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.PdfPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.PdfPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.PdfPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PdfPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.PdfPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.PdfPost`: %v\n", resp)
 }
 ```
 
@@ -941,13 +1008,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.PdfTrialPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.PdfTrialPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.PdfTrialPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.PdfTrialPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PdfTrialPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.PdfTrialPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.PdfTrialPost`: %v\n", resp)
 }
 ```
 
@@ -1005,13 +1072,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.PresentationPost(context.Background()).PresentationFileRequest(presentationFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.PresentationPost(context.Background()).PresentationFileRequest(presentationFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.PresentationPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.PresentationPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PresentationPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.PresentationPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.PresentationPost`: %v\n", resp)
 }
 ```
 
@@ -1048,9 +1115,9 @@ Name | Type | Description  | Notes
 
 ## ResxPost
 
-> StatusResponse ResxPost(ctx).ResxFileRequest(resxFileRequest).Execute()
+> StatusResponse ResxPost(ctx).SrtFileRequest(srtFileRequest).Execute()
 
-Translate RESX files
+Translate Resx files
 
 ### Example
 
@@ -1065,17 +1132,17 @@ import (
 )
 
 func main() {
-    resxFileRequest := *openapiclient.NewResxFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}) // ResxFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
+    srtFileRequest := *openapiclient.NewSrtFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}) // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.ResxPost(context.Background()).ResxFileRequest(resxFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.ResxPost(context.Background()).SrtFileRequest(srtFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.ResxPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.ResxPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResxPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.ResxPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.ResxPost`: %v\n", resp)
 }
 ```
 
@@ -1090,7 +1157,7 @@ Other parameters are passed through a pointer to a apiResxPostRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resxFileRequest** | [**ResxFileRequest**](ResxFileRequest.md) | String in body of request, containing JSON with parameters for translation. | 
+ **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | 
 
 ### Return type
 
@@ -1133,13 +1200,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.SpreadsheetPost(context.Background()).SpreadsheetFileRequest(spreadsheetFileRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.SpreadsheetPost(context.Background()).SpreadsheetFileRequest(spreadsheetFileRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.SpreadsheetPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.SpreadsheetPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SpreadsheetPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.SpreadsheetPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.SpreadsheetPost`: %v\n", resp)
 }
 ```
 
@@ -1155,6 +1222,70 @@ Other parameters are passed through a pointer to a apiSpreadsheetPostRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) | String in body of request, containing JSON with parameters for translation. | 
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SrtPost
+
+> StatusResponse SrtPost(ctx).SrtFileRequest(srtFileRequest).Execute()
+
+Translate Srt files
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    asposeocrcloud "github.com/aspose-ocr-cloud/aspose-ocr-cloud-go"
+)
+
+func main() {
+    srtFileRequest := *openapiclient.NewSrtFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}) // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
+
+    configuration := asposeocrcloud.NewConfiguration()
+    apiClient := asposeocrcloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.TranslationAPI.SrtPost(context.Background()).SrtFileRequest(srtFileRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.SrtPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SrtPost`: StatusResponse
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.SrtPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSrtPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | 
 
 ### Return type
 
@@ -1197,13 +1328,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.TextPost(context.Background()).TextRequest(textRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.TextPost(context.Background()).TextRequest(textRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.TextPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.TextPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TextPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.TextPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.TextPost`: %v\n", resp)
 }
 ```
 
@@ -1261,13 +1392,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.TextRequestIdGet(context.Background(), requestId).Execute()
+    resp, r, err := apiClient.TranslationAPI.TextRequestIdGet(context.Background(), requestId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.TextRequestIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.TextRequestIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TextRequestIdGet`: CloudTextResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.TextRequestIdGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.TextRequestIdGet`: %v\n", resp)
 }
 ```
 
@@ -1287,6 +1418,70 @@ Other parameters are passed through a pointer to a apiTextRequestIdGetRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+### Return type
+
+[**CloudTextResponse**](CloudTextResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TextTrialGet
+
+> CloudTextResponse TextTrialGet(ctx).RequestId(requestId).Execute()
+
+Return text translation status for trial requests.  Also return translated text if translation was successful
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    asposeocrcloud "github.com/aspose-ocr-cloud/aspose-ocr-cloud-go"
+)
+
+func main() {
+    requestId := "requestId_example" // string | GUID which got from /v3/translation/text response (optional)
+
+    configuration := asposeocrcloud.NewConfiguration()
+    apiClient := asposeocrcloud.NewAPIClient(configuration)
+    resp, r, err := apiClient.TranslationAPI.TextTrialGet(context.Background()).RequestId(requestId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.TextTrialGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TextTrialGet`: CloudTextResponse
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.TextTrialGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTextTrialGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestId** | **string** | GUID which got from /v3/translation/text response | 
 
 ### Return type
 
@@ -1329,13 +1524,13 @@ func main() {
 
     configuration := asposeocrcloud.NewConfiguration()
     apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.TranslationApi.TextTrialPost(context.Background()).TextRequest(textRequest).Execute()
+    resp, r, err := apiClient.TranslationAPI.TextTrialPost(context.Background()).TextRequest(textRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TranslationApi.TextTrialPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TranslationAPI.TextTrialPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TextTrialPost`: StatusResponse
-    fmt.Fprintf(os.Stdout, "Response from `TranslationApi.TextTrialPost`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TranslationAPI.TextTrialPost`: %v\n", resp)
 }
 ```
 

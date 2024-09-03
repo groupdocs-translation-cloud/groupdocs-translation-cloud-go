@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **OutputFormat** | **string** | output file format | 
 **PreserveFormatting** | Pointer to **bool** | If document&#39;s formatting should be preserved, default true | [optional] [default to true]
-**Pages** | Pointer to **[]int32** | List of pages to translate | [optional] 
+**Pages** | Pointer to **[]int32** | List of pages to translate (1-based index). If not present, translate all pages | [optional] 
 
 ## Methods
 
