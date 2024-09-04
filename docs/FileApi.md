@@ -30,7 +30,7 @@ func main() {
 	format := "format_example" // string |  (optional)
 	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.FileAPI.FileUploadPost(context.Background()).Format(format).File(file).Execute()
 	if err != nil {

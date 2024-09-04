@@ -29,6 +29,22 @@ func TestMain(m *testing.M) {
 	apiClient = openapiclient.NewAPIClient(configuration)
 	m.Run()
 }
+func GetFileTranslation(t *testing.T, id string) openapiclient.CloudFileResponse {
+	var response openapiclient.CloudFileResponse
+	for i := 0; i < 20; i++ {
+		resp, _, err := apiClient.TranslationAPI.DocumentRequestIdGet(context.Background(), id).Execute()
+		require.Nil(t, err)
+		if len(resp.Urls) > 0 {
+			response = *resp
+			break
+		}
+		time.Sleep(5 * time.Second)
+	}
+	require.NotNil(t, response)
+	require.NotNil(t, response.Urls)
+	fmt.Println(response.Urls)
+	return response
+}
 
 func GetText(t *testing.T, id string) openapiclient.CloudTextResponse {
 	var response openapiclient.CloudTextResponse
@@ -218,15 +234,25 @@ func Test_groupdocs_translation_cloud_TranslationAPIService(t *testing.T) {
 	})
 
 	t.Run("Test TranslationAPIService PdfPost", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		resp, httpRes, err := apiClient.TranslationAPI.PdfPost(context.Background()).Execute()
-
+		fileReq := apiClient.FileAPI.FileUploadPost(context.Background())
+		file, err := os.OpenFile("test_data/somatosensory.pdf", os.O_RDONLY, os.ModePerm)
+		filename := "somatosensory.pdf"
+		fileReq = fileReq.File(file)
+		fileReq = fileReq.Format("pdf")
+		fileResp, _, err := fileReq.Execute()
+		req := apiClient.TranslationAPI.PdfPost(context.Background())
+		request := openapiclient.PdfFileRequest{}
+		request.Url.Set(&fileResp)
+		request.SourceLanguage = "en"
+		request.TargetLanguages = []string{"ru"}
+		request.OriginalFileName.Set(&filename)
+		request.OutputFormat = "pdf"
+		req.PdfFileRequest(request)
+		resp, httpRes, err := req.Execute()
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		GetFileTranslation(t, resp.GetId())
 	})
 
 	t.Run("Test TranslationAPIService PdfTrialPost", func(t *testing.T) {

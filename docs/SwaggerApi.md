@@ -30,7 +30,7 @@ func main() {
 	isYaml := true // bool |  (optional) (default to false)
 	serialaizeAsV2 := true // bool |  (optional) (default to false)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	r, err := apiClient.SwaggerAPI.SwaggerSpecGet(context.Background()).IsYaml(isYaml).SerialaizeAsV2(serialaizeAsV2).Execute()
 	if err != nil {

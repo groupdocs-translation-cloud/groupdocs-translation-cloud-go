@@ -5,61 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ea705c5-663b-444b-abf6-f94125652200" name="Changes" comment="Working latest version&#10;&#10;Checked only Text endpoints">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_data/somatosensory.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/api_file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_swagger.go" beforeDir="false" afterPath="$PROJECT_DIR$/api_swagger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_translation.go" beforeDir="false" afterPath="$PROJECT_DIR$/api_translation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_transport.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AutoPostRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/FileApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/FileApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/OcrFileRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ResxFileRequest.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SwaggerApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SwaggerApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TranslationApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/TranslationApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TransportApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/translate_text_example.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" afterPath="$PROJECT_DIR$/git_push.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model__auto_post_request.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_cloud_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_cloud_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_cloud_file_response.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_cloud_file_response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_cloud_file_response_with_additional_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_cloud_file_response_with_additional_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_cloud_hugo_response.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_cloud_hugo_response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_cloud_text_response.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_cloud_text_response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_csv_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_csv_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_health_check_entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_health_check_entity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_health_check_status.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_health_check_status.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_html_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_html_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_http_status_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_http_status_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_hugo_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_hugo_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_image_to_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_image_to_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_image_to_text_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_image_to_text_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_language_pair_data.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_language_pair_data.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_markdown_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_markdown_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_ocr_file_request.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_pdf_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_pdf_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_presentation_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_presentation_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_resx_file_request.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_spreadsheet_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_spreadsheet_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_srt_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_srt_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_status_response.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_status_response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_string_string_tuple.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_string_string_tuple.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_text_document_file_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_text_document_file_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_text_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_text_request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_url_file_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_url_file_info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_worksheet_data.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_worksheet_data.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/api_file_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/api_file_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/api_swagger_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/api_swagger_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/api_translation_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/api_translation_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/api_transport_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +44,7 @@
     "DefaultGoTemplateProperty": "Go File",
     "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test (1).executor": "Run",
     "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test.executor": "Debug",
+    "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test.executor": "Run",
     "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfTrialPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test.executor": "Debug",
     "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_TextPost in api_translation_test.go.executor": "Debug",
     "Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_TextPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test (1).executor": "Debug",
@@ -118,7 +67,12 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_TextPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\openapi-generator\GroupDocs.Translation\go\test\test_data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test">
     <configuration name="Test_groupdocs_translation_cloud_TranslationAPIService in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go" />
       <working_directory value="$PROJECT_DIR$/test" />
@@ -129,6 +83,18 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTest_groupdocs_translation_cloud_TranslationAPIService\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_groupdocs_translation_cloud_TranslationAPIService\E$/^\QTest_TranslationAPIService_PdfPost\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfTrialPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -173,11 +139,13 @@
     <list>
       <item itemvalue="Go Test.go test go" />
       <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
+      <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
       <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfTrialPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
       <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_TextPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
         <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_TextPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
         <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
         <item itemvalue="Go Test.Test_groupdocs_translation_cloud_TranslationAPIService/Test_TranslationAPIService_PdfTrialPost in github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/test" />
@@ -224,11 +192,6 @@
           <url>file://$USER_HOME$/go/pkg/mod/golang.org/x/oauth2@v0.11.0/oauth2.go</url>
           <line>152</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/test/api_translation_test.go</url>
-          <line>39</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

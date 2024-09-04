@@ -52,7 +52,7 @@ import (
 func main() {
 	fileRequest := *openapiclient.NewFileRequest() // FileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.AutoPost(context.Background()).FileRequest(fileRequest).Execute()
 	if err != nil {
@@ -116,7 +116,7 @@ import (
 func main() {
 	csvFileRequest := *openapiclient.NewCsvFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutputFormat_example") // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.CsvPost(context.Background()).CsvFileRequest(csvFileRequest).Execute()
 	if err != nil {
@@ -180,7 +180,7 @@ import (
 func main() {
 	textDocumentFileRequest := *openapiclient.NewTextDocumentFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "Unknown", "OutputFormat_example") // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.DocumentPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
 	if err != nil {
@@ -244,7 +244,7 @@ import (
 func main() {
 	requestId := "requestId_example" // string | GUID which got from /translation/document response
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.DocumentRequestIdGet(context.Background(), requestId).Execute()
 	if err != nil {
@@ -312,7 +312,7 @@ import (
 func main() {
 	requestId := "requestId_example" // string | GUID which got from /v3/translation/document response (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.DocumentTrialGet(context.Background()).RequestId(requestId).Execute()
 	if err != nil {
@@ -376,7 +376,7 @@ import (
 func main() {
 	textDocumentFileRequest := *openapiclient.NewTextDocumentFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "Unknown", "OutputFormat_example") // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.DocumentTrialPost(context.Background()).TextDocumentFileRequest(textDocumentFileRequest).Execute()
 	if err != nil {
@@ -439,7 +439,7 @@ import (
 
 func main() {
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.HcGet(context.Background()).Execute()
 	if err != nil {
@@ -499,7 +499,7 @@ import (
 func main() {
 	htmlFileRequest := *openapiclient.NewHtmlFileRequest() // HtmlFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.HtmlPost(context.Background()).HtmlFileRequest(htmlFileRequest).Execute()
 	if err != nil {
@@ -563,7 +563,7 @@ import (
 func main() {
 	id := "id_example" // string | id from PostHugo> (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.HugoGet(context.Background()).Id(id).Execute()
 	if err != nil {
@@ -627,7 +627,7 @@ import (
 func main() {
 	hugoRequest := *openapiclient.NewHugoRequest() // HugoRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.HugoPost(context.Background()).HugoRequest(hugoRequest).Execute()
 	if err != nil {
@@ -691,7 +691,7 @@ import (
 func main() {
 	imageToFileRequest := *openapiclient.NewImageToFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "Ocrformat_example", "OutputFormat_example") // ImageToFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.ImageToFilePost(context.Background()).ImageToFileRequest(imageToFileRequest).Execute()
 	if err != nil {
@@ -755,7 +755,7 @@ import (
 func main() {
 	imageToTextRequest := *openapiclient.NewImageToTextRequest() // ImageToTextRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.ImageToTextPost(context.Background()).ImageToTextRequest(imageToTextRequest).Execute()
 	if err != nil {
@@ -818,7 +818,7 @@ import (
 
 func main() {
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.LanguagesGet(context.Background()).Execute()
 	if err != nil {
@@ -878,7 +878,7 @@ import (
 func main() {
 	markdownFileRequest := *openapiclient.NewMarkdownFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutputFormat_example") // MarkdownFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.MarkdownPost(context.Background()).MarkdownFileRequest(markdownFileRequest).Execute()
 	if err != nil {
@@ -942,7 +942,7 @@ import (
 func main() {
 	pdfFileRequest := *openapiclient.NewPdfFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutputFormat_example") // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.PdfPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
 	if err != nil {
@@ -1006,7 +1006,7 @@ import (
 func main() {
 	pdfFileRequest := *openapiclient.NewPdfFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "OutputFormat_example") // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.PdfTrialPost(context.Background()).PdfFileRequest(pdfFileRequest).Execute()
 	if err != nil {
@@ -1070,7 +1070,7 @@ import (
 func main() {
 	presentationFileRequest := *openapiclient.NewPresentationFileRequest() // PresentationFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.PresentationPost(context.Background()).PresentationFileRequest(presentationFileRequest).Execute()
 	if err != nil {
@@ -1134,7 +1134,7 @@ import (
 func main() {
 	srtFileRequest := *openapiclient.NewSrtFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}) // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.ResxPost(context.Background()).SrtFileRequest(srtFileRequest).Execute()
 	if err != nil {
@@ -1198,7 +1198,7 @@ import (
 func main() {
 	spreadsheetFileRequest := *openapiclient.NewSpreadsheetFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}, "Unknown", "OutputFormat_example") // SpreadsheetFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.SpreadsheetPost(context.Background()).SpreadsheetFileRequest(spreadsheetFileRequest).Execute()
 	if err != nil {
@@ -1262,7 +1262,7 @@ import (
 func main() {
 	srtFileRequest := *openapiclient.NewSrtFileRequest("SourceLanguage_example", []string{"TargetLanguages_example"}) // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.SrtPost(context.Background()).SrtFileRequest(srtFileRequest).Execute()
 	if err != nil {
@@ -1326,7 +1326,7 @@ import (
 func main() {
 	textRequest := *openapiclient.NewTextRequest() // TextRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.TextPost(context.Background()).TextRequest(textRequest).Execute()
 	if err != nil {
@@ -1390,7 +1390,7 @@ import (
 func main() {
 	requestId := "requestId_example" // string | GUID which got from /v3/translation/text response
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.TextRequestIdGet(context.Background(), requestId).Execute()
 	if err != nil {
@@ -1458,7 +1458,7 @@ import (
 func main() {
 	requestId := "requestId_example" // string | GUID which got from /v3/translation/text response (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.TextTrialGet(context.Background()).RequestId(requestId).Execute()
 	if err != nil {
@@ -1522,7 +1522,7 @@ import (
 func main() {
 	textRequest := *openapiclient.NewTextRequest() // TextRequest | String in body of request, containing JSON with parameters for translation. (optional)
 
-	configuration := openapiclient.NewConfiguration()
+	configuration := openapiclient.NewConfiguration("YOUR_CLIENT_ID", "YOUR_CLIENT_SECRET")
 	apiClient := openapiclient.NewAPIClient(configuration)
 	resp, r, err := apiClient.TranslationAPI.TextTrialPost(context.Background()).TextRequest(textRequest).Execute()
 	if err != nil {
