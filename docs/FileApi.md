@@ -20,25 +20,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    asposeocrcloud "github.com/aspose-ocr-cloud/aspose-ocr-cloud-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go"
 )
 
 func main() {
-    format := "format_example" // string |  (optional)
-    file := os.NewFile(1234, "some_file") // *os.File |  (optional)
+	format := "format_example" // string |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
-    configuration := asposeocrcloud.NewConfiguration()
-    apiClient := asposeocrcloud.NewAPIClient(configuration)
-    resp, r, err := apiClient.FileAPI.FileUploadPost(context.Background()).Format(format).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FileAPI.FileUploadPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FileUploadPost`: string
-    fmt.Fprintf(os.Stdout, "Response from `FileAPI.FileUploadPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.FileAPI.FileUploadPost(context.Background()).Format(format).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `FileAPI.FileUploadPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FileUploadPost`: string
+	fmt.Fprintf(os.Stdout, "Response from `FileAPI.FileUploadPost`: %v\n", resp)
 }
 ```
 

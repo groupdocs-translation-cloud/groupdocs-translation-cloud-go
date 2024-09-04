@@ -14,17 +14,17 @@ if [ "$git_host" = "" ]; then
 fi
 
 if [ "$git_user_id" = "" ]; then
-    git_user_id="{aspose-ocr-cloud}"
+    git_user_id="groupdocs-translation-cloud"
     echo "[INFO] No command line input provided. Set \$git_user_id to $git_user_id"
 fi
 
 if [ "$git_repo_id" = "" ]; then
-    git_repo_id="{aspose-ocr-cloud-go}"
+    git_repo_id="groupdocs-translation-cloud-go"
     echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="See https://docs.groupdocs.cloud/translation/groupdocs-translation-for-cloud-23-08-release-notes/"
+    release_note="See https://releases.groupdocs.cloud/translation/release-notes/latest/"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 

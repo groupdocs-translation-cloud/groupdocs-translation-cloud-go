@@ -20,23 +20,23 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    asposeocrcloud "github.com/aspose-ocr-cloud/aspose-ocr-cloud-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go"
 )
 
 func main() {
-    isYaml := true // bool |  (optional) (default to false)
-    serialaizeAsV2 := true // bool |  (optional) (default to false)
+	isYaml := true // bool |  (optional) (default to false)
+	serialaizeAsV2 := true // bool |  (optional) (default to false)
 
-    configuration := asposeocrcloud.NewConfiguration()
-    apiClient := asposeocrcloud.NewAPIClient(configuration)
-    r, err := apiClient.SwaggerAPI.SwaggerSpecGet(context.Background()).IsYaml(isYaml).SerialaizeAsV2(serialaizeAsV2).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SwaggerAPI.SwaggerSpecGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SwaggerAPI.SwaggerSpecGet(context.Background()).IsYaml(isYaml).SerialaizeAsV2(serialaizeAsV2).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SwaggerAPI.SwaggerSpecGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
