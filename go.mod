@@ -1,4 +1,4 @@
-module github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go
+module github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-go/v25
 
 go 1.18
 
