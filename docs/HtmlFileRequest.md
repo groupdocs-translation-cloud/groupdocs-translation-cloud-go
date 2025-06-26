@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | Pointer to **string** | Language of original file | [optional] [default to "en"]
 **TargetLanguages** | Pointer to **[]string** | List of target languages | [optional] 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
-**Origin** | Pointer to **NullableString** | Url or name of application using this SDK. Not required. | [optional] 
+**Url** | Pointer to **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
+**Origin** | Pointer to **NullableString** | Url or name of the application using this SDK. Not required. | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **OutputFormat** | Pointer to **string** | output file format | [optional] 
 
@@ -82,41 +83,6 @@ SetTargetLanguages sets TargetLanguages field to given value.
 
 HasTargetLanguages returns a boolean if a field has been set.
 
-### GetFile
-
-`func (o *HtmlFileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *HtmlFileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *HtmlFileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *HtmlFileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *HtmlFileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *HtmlFileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *HtmlFileRequest) GetOriginalFileName() string`
@@ -177,16 +143,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *HtmlFileRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *HtmlFileRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetOrigin
 
 `func (o *HtmlFileRequest) GetOrigin() string`
@@ -222,6 +178,66 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *HtmlFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetIsNeedAlignment
+
+`func (o *HtmlFileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *HtmlFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *HtmlFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *HtmlFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *HtmlFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *HtmlFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *HtmlFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *HtmlFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *HtmlFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *HtmlFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *HtmlFileRequest) GetSavingMode() string`

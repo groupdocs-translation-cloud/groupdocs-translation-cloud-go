@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | **string** | Language of original file | [default to "en"]
 **TargetLanguages** | **[]string** | List of target languages | 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
-**Origin** | Pointer to **NullableString** | Url or name of application using this SDK. Not required. | [optional] 
+**Url** | **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | 
+**Origin** | Pointer to **NullableString** | Url or name of the application using this SDK. Not required. | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **OutputFormat** | **string** | output file format | 
 **PreserveFormatting** | Pointer to **bool** | If document&#39;s formatting should be preserved, default true | [optional] [default to true]
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewPdfFileRequest
 
-`func NewPdfFileRequest(sourceLanguage string, targetLanguages []string, outputFormat string, ) *PdfFileRequest`
+`func NewPdfFileRequest(sourceLanguage string, targetLanguages []string, url string, outputFormat string, ) *PdfFileRequest`
 
 NewPdfFileRequest instantiates a new PdfFileRequest object
 This constructor will assign default values to properties that have it defined,
@@ -74,41 +75,6 @@ and a boolean to check if the value has been set.
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
-### GetFile
-
-`func (o *PdfFileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *PdfFileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *PdfFileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *PdfFileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *PdfFileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *PdfFileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *PdfFileRequest) GetOriginalFileName() string`
@@ -163,22 +129,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *PdfFileRequest) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *PdfFileRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *PdfFileRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetOrigin
 
 `func (o *PdfFileRequest) GetOrigin() string`
@@ -214,6 +165,66 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *PdfFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetIsNeedAlignment
+
+`func (o *PdfFileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *PdfFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *PdfFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *PdfFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *PdfFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *PdfFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *PdfFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *PdfFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *PdfFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *PdfFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *PdfFileRequest) GetSavingMode() string`

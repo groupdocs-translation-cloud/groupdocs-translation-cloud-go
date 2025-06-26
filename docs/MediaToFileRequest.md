@@ -1,4 +1,4 @@
-# CsvFileRequest
+# MediaToFileRequest
 
 ## Properties
 
@@ -12,324 +12,381 @@ Name | Type | Description | Notes
 **IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
 **TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
-**Format** | Pointer to **string** | Input file format | [optional] [default to "Csv"]
+**Format** | **string** | Input file format | [default to "Mp3"]
 **OutputFormat** | **string** | output file format | 
-**Separator** | Pointer to **NullableString** | Separator in files | [optional] 
+**Fragments** | Pointer to **[]string** | Time fragments that require translation | [optional] 
+**Interval** | Pointer to **int32** | Define intervals of timestampts in the resulting file | [optional] 
+**Route** | Pointer to **NullableString** | endpoints route | [optional] 
 
 ## Methods
 
-### NewCsvFileRequest
+### NewMediaToFileRequest
 
-`func NewCsvFileRequest(sourceLanguage string, targetLanguages []string, url string, outputFormat string, ) *CsvFileRequest`
+`func NewMediaToFileRequest(sourceLanguage string, targetLanguages []string, url string, format string, outputFormat string, ) *MediaToFileRequest`
 
-NewCsvFileRequest instantiates a new CsvFileRequest object
+NewMediaToFileRequest instantiates a new MediaToFileRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCsvFileRequestWithDefaults
+### NewMediaToFileRequestWithDefaults
 
-`func NewCsvFileRequestWithDefaults() *CsvFileRequest`
+`func NewMediaToFileRequestWithDefaults() *MediaToFileRequest`
 
-NewCsvFileRequestWithDefaults instantiates a new CsvFileRequest object
+NewMediaToFileRequestWithDefaults instantiates a new MediaToFileRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetSourceLanguage
 
-`func (o *CsvFileRequest) GetSourceLanguage() string`
+`func (o *MediaToFileRequest) GetSourceLanguage() string`
 
 GetSourceLanguage returns the SourceLanguage field if non-nil, zero value otherwise.
 
 ### GetSourceLanguageOk
 
-`func (o *CsvFileRequest) GetSourceLanguageOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetSourceLanguageOk() (*string, bool)`
 
 GetSourceLanguageOk returns a tuple with the SourceLanguage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSourceLanguage
 
-`func (o *CsvFileRequest) SetSourceLanguage(v string)`
+`func (o *MediaToFileRequest) SetSourceLanguage(v string)`
 
 SetSourceLanguage sets SourceLanguage field to given value.
 
 
 ### GetTargetLanguages
 
-`func (o *CsvFileRequest) GetTargetLanguages() []string`
+`func (o *MediaToFileRequest) GetTargetLanguages() []string`
 
 GetTargetLanguages returns the TargetLanguages field if non-nil, zero value otherwise.
 
 ### GetTargetLanguagesOk
 
-`func (o *CsvFileRequest) GetTargetLanguagesOk() (*[]string, bool)`
+`func (o *MediaToFileRequest) GetTargetLanguagesOk() (*[]string, bool)`
 
 GetTargetLanguagesOk returns a tuple with the TargetLanguages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetLanguages
 
-`func (o *CsvFileRequest) SetTargetLanguages(v []string)`
+`func (o *MediaToFileRequest) SetTargetLanguages(v []string)`
 
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
 ### GetOriginalFileName
 
-`func (o *CsvFileRequest) GetOriginalFileName() string`
+`func (o *MediaToFileRequest) GetOriginalFileName() string`
 
 GetOriginalFileName returns the OriginalFileName field if non-nil, zero value otherwise.
 
 ### GetOriginalFileNameOk
 
-`func (o *CsvFileRequest) GetOriginalFileNameOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetOriginalFileNameOk() (*string, bool)`
 
 GetOriginalFileNameOk returns a tuple with the OriginalFileName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOriginalFileName
 
-`func (o *CsvFileRequest) SetOriginalFileName(v string)`
+`func (o *MediaToFileRequest) SetOriginalFileName(v string)`
 
 SetOriginalFileName sets OriginalFileName field to given value.
 
 ### HasOriginalFileName
 
-`func (o *CsvFileRequest) HasOriginalFileName() bool`
+`func (o *MediaToFileRequest) HasOriginalFileName() bool`
 
 HasOriginalFileName returns a boolean if a field has been set.
 
 ### SetOriginalFileNameNil
 
-`func (o *CsvFileRequest) SetOriginalFileNameNil(b bool)`
+`func (o *MediaToFileRequest) SetOriginalFileNameNil(b bool)`
 
  SetOriginalFileNameNil sets the value for OriginalFileName to be an explicit nil
 
 ### UnsetOriginalFileName
-`func (o *CsvFileRequest) UnsetOriginalFileName()`
+`func (o *MediaToFileRequest) UnsetOriginalFileName()`
 
 UnsetOriginalFileName ensures that no value is present for OriginalFileName, not even an explicit nil
 ### GetUrl
 
-`func (o *CsvFileRequest) GetUrl() string`
+`func (o *MediaToFileRequest) GetUrl() string`
 
 GetUrl returns the Url field if non-nil, zero value otherwise.
 
 ### GetUrlOk
 
-`func (o *CsvFileRequest) GetUrlOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetUrlOk() (*string, bool)`
 
 GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUrl
 
-`func (o *CsvFileRequest) SetUrl(v string)`
+`func (o *MediaToFileRequest) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
 
 
 ### GetOrigin
 
-`func (o *CsvFileRequest) GetOrigin() string`
+`func (o *MediaToFileRequest) GetOrigin() string`
 
 GetOrigin returns the Origin field if non-nil, zero value otherwise.
 
 ### GetOriginOk
 
-`func (o *CsvFileRequest) GetOriginOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetOriginOk() (*string, bool)`
 
 GetOriginOk returns a tuple with the Origin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrigin
 
-`func (o *CsvFileRequest) SetOrigin(v string)`
+`func (o *MediaToFileRequest) SetOrigin(v string)`
 
 SetOrigin sets Origin field to given value.
 
 ### HasOrigin
 
-`func (o *CsvFileRequest) HasOrigin() bool`
+`func (o *MediaToFileRequest) HasOrigin() bool`
 
 HasOrigin returns a boolean if a field has been set.
 
 ### SetOriginNil
 
-`func (o *CsvFileRequest) SetOriginNil(b bool)`
+`func (o *MediaToFileRequest) SetOriginNil(b bool)`
 
  SetOriginNil sets the value for Origin to be an explicit nil
 
 ### UnsetOrigin
-`func (o *CsvFileRequest) UnsetOrigin()`
+`func (o *MediaToFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
 ### GetIsNeedAlignment
 
-`func (o *CsvFileRequest) GetIsNeedAlignment() bool`
+`func (o *MediaToFileRequest) GetIsNeedAlignment() bool`
 
 GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
 
 ### GetIsNeedAlignmentOk
 
-`func (o *CsvFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+`func (o *MediaToFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
 
 GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsNeedAlignment
 
-`func (o *CsvFileRequest) SetIsNeedAlignment(v bool)`
+`func (o *MediaToFileRequest) SetIsNeedAlignment(v bool)`
 
 SetIsNeedAlignment sets IsNeedAlignment field to given value.
 
 ### HasIsNeedAlignment
 
-`func (o *CsvFileRequest) HasIsNeedAlignment() bool`
+`func (o *MediaToFileRequest) HasIsNeedAlignment() bool`
 
 HasIsNeedAlignment returns a boolean if a field has been set.
 
 ### GetTranslationDictionary
 
-`func (o *CsvFileRequest) GetTranslationDictionary() map[string]string`
+`func (o *MediaToFileRequest) GetTranslationDictionary() map[string]string`
 
 GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
 
 ### GetTranslationDictionaryOk
 
-`func (o *CsvFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+`func (o *MediaToFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
 
 GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTranslationDictionary
 
-`func (o *CsvFileRequest) SetTranslationDictionary(v map[string]string)`
+`func (o *MediaToFileRequest) SetTranslationDictionary(v map[string]string)`
 
 SetTranslationDictionary sets TranslationDictionary field to given value.
 
 ### HasTranslationDictionary
 
-`func (o *CsvFileRequest) HasTranslationDictionary() bool`
+`func (o *MediaToFileRequest) HasTranslationDictionary() bool`
 
 HasTranslationDictionary returns a boolean if a field has been set.
 
 ### SetTranslationDictionaryNil
 
-`func (o *CsvFileRequest) SetTranslationDictionaryNil(b bool)`
+`func (o *MediaToFileRequest) SetTranslationDictionaryNil(b bool)`
 
  SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
 
 ### UnsetTranslationDictionary
-`func (o *CsvFileRequest) UnsetTranslationDictionary()`
+`func (o *MediaToFileRequest) UnsetTranslationDictionary()`
 
 UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
-`func (o *CsvFileRequest) GetSavingMode() string`
+`func (o *MediaToFileRequest) GetSavingMode() string`
 
 GetSavingMode returns the SavingMode field if non-nil, zero value otherwise.
 
 ### GetSavingModeOk
 
-`func (o *CsvFileRequest) GetSavingModeOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetSavingModeOk() (*string, bool)`
 
 GetSavingModeOk returns a tuple with the SavingMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSavingMode
 
-`func (o *CsvFileRequest) SetSavingMode(v string)`
+`func (o *MediaToFileRequest) SetSavingMode(v string)`
 
 SetSavingMode sets SavingMode field to given value.
 
 ### HasSavingMode
 
-`func (o *CsvFileRequest) HasSavingMode() bool`
+`func (o *MediaToFileRequest) HasSavingMode() bool`
 
 HasSavingMode returns a boolean if a field has been set.
 
 ### GetFormat
 
-`func (o *CsvFileRequest) GetFormat() string`
+`func (o *MediaToFileRequest) GetFormat() string`
 
 GetFormat returns the Format field if non-nil, zero value otherwise.
 
 ### GetFormatOk
 
-`func (o *CsvFileRequest) GetFormatOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetFormatOk() (*string, bool)`
 
 GetFormatOk returns a tuple with the Format field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFormat
 
-`func (o *CsvFileRequest) SetFormat(v string)`
+`func (o *MediaToFileRequest) SetFormat(v string)`
 
 SetFormat sets Format field to given value.
 
-### HasFormat
-
-`func (o *CsvFileRequest) HasFormat() bool`
-
-HasFormat returns a boolean if a field has been set.
 
 ### GetOutputFormat
 
-`func (o *CsvFileRequest) GetOutputFormat() string`
+`func (o *MediaToFileRequest) GetOutputFormat() string`
 
 GetOutputFormat returns the OutputFormat field if non-nil, zero value otherwise.
 
 ### GetOutputFormatOk
 
-`func (o *CsvFileRequest) GetOutputFormatOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetOutputFormatOk() (*string, bool)`
 
 GetOutputFormatOk returns a tuple with the OutputFormat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputFormat
 
-`func (o *CsvFileRequest) SetOutputFormat(v string)`
+`func (o *MediaToFileRequest) SetOutputFormat(v string)`
 
 SetOutputFormat sets OutputFormat field to given value.
 
 
-### GetSeparator
+### GetFragments
 
-`func (o *CsvFileRequest) GetSeparator() string`
+`func (o *MediaToFileRequest) GetFragments() []string`
 
-GetSeparator returns the Separator field if non-nil, zero value otherwise.
+GetFragments returns the Fragments field if non-nil, zero value otherwise.
 
-### GetSeparatorOk
+### GetFragmentsOk
 
-`func (o *CsvFileRequest) GetSeparatorOk() (*string, bool)`
+`func (o *MediaToFileRequest) GetFragmentsOk() (*[]string, bool)`
 
-GetSeparatorOk returns a tuple with the Separator field if it's non-nil, zero value otherwise
+GetFragmentsOk returns a tuple with the Fragments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSeparator
+### SetFragments
 
-`func (o *CsvFileRequest) SetSeparator(v string)`
+`func (o *MediaToFileRequest) SetFragments(v []string)`
 
-SetSeparator sets Separator field to given value.
+SetFragments sets Fragments field to given value.
 
-### HasSeparator
+### HasFragments
 
-`func (o *CsvFileRequest) HasSeparator() bool`
+`func (o *MediaToFileRequest) HasFragments() bool`
 
-HasSeparator returns a boolean if a field has been set.
+HasFragments returns a boolean if a field has been set.
 
-### SetSeparatorNil
+### SetFragmentsNil
 
-`func (o *CsvFileRequest) SetSeparatorNil(b bool)`
+`func (o *MediaToFileRequest) SetFragmentsNil(b bool)`
 
- SetSeparatorNil sets the value for Separator to be an explicit nil
+ SetFragmentsNil sets the value for Fragments to be an explicit nil
 
-### UnsetSeparator
-`func (o *CsvFileRequest) UnsetSeparator()`
+### UnsetFragments
+`func (o *MediaToFileRequest) UnsetFragments()`
 
-UnsetSeparator ensures that no value is present for Separator, not even an explicit nil
+UnsetFragments ensures that no value is present for Fragments, not even an explicit nil
+### GetInterval
+
+`func (o *MediaToFileRequest) GetInterval() int32`
+
+GetInterval returns the Interval field if non-nil, zero value otherwise.
+
+### GetIntervalOk
+
+`func (o *MediaToFileRequest) GetIntervalOk() (*int32, bool)`
+
+GetIntervalOk returns a tuple with the Interval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterval
+
+`func (o *MediaToFileRequest) SetInterval(v int32)`
+
+SetInterval sets Interval field to given value.
+
+### HasInterval
+
+`func (o *MediaToFileRequest) HasInterval() bool`
+
+HasInterval returns a boolean if a field has been set.
+
+### GetRoute
+
+`func (o *MediaToFileRequest) GetRoute() string`
+
+GetRoute returns the Route field if non-nil, zero value otherwise.
+
+### GetRouteOk
+
+`func (o *MediaToFileRequest) GetRouteOk() (*string, bool)`
+
+GetRouteOk returns a tuple with the Route field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoute
+
+`func (o *MediaToFileRequest) SetRoute(v string)`
+
+SetRoute sets Route field to given value.
+
+### HasRoute
+
+`func (o *MediaToFileRequest) HasRoute() bool`
+
+HasRoute returns a boolean if a field has been set.
+
+### SetRouteNil
+
+`func (o *MediaToFileRequest) SetRouteNil(b bool)`
+
+ SetRouteNil sets the value for Route to be an explicit nil
+
+### UnsetRoute
+`func (o *MediaToFileRequest) UnsetRoute()`
+
+UnsetRoute ensures that no value is present for Route, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

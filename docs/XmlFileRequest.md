@@ -1,4 +1,4 @@
-# CsvFileRequest
+# XmlFileRequest
 
 ## Properties
 
@@ -12,324 +12,303 @@ Name | Type | Description | Notes
 **IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
 **TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
-**Format** | Pointer to **string** | Input file format | [optional] [default to "Csv"]
-**OutputFormat** | **string** | output file format | 
-**Separator** | Pointer to **NullableString** | Separator in files | [optional] 
+**IgnoreList** | Pointer to **[]string** | List of elements for Xml, Json and Yaml formats. Determines which items should be blacklisted or whitelisted for processing depending on GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IsWhiteList. | [optional] 
+**IsWhiteList** | Pointer to **bool** | Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IgnoreList should be allocated. The default is the black list. | [optional] 
 
 ## Methods
 
-### NewCsvFileRequest
+### NewXmlFileRequest
 
-`func NewCsvFileRequest(sourceLanguage string, targetLanguages []string, url string, outputFormat string, ) *CsvFileRequest`
+`func NewXmlFileRequest(sourceLanguage string, targetLanguages []string, url string, ) *XmlFileRequest`
 
-NewCsvFileRequest instantiates a new CsvFileRequest object
+NewXmlFileRequest instantiates a new XmlFileRequest object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCsvFileRequestWithDefaults
+### NewXmlFileRequestWithDefaults
 
-`func NewCsvFileRequestWithDefaults() *CsvFileRequest`
+`func NewXmlFileRequestWithDefaults() *XmlFileRequest`
 
-NewCsvFileRequestWithDefaults instantiates a new CsvFileRequest object
+NewXmlFileRequestWithDefaults instantiates a new XmlFileRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetSourceLanguage
 
-`func (o *CsvFileRequest) GetSourceLanguage() string`
+`func (o *XmlFileRequest) GetSourceLanguage() string`
 
 GetSourceLanguage returns the SourceLanguage field if non-nil, zero value otherwise.
 
 ### GetSourceLanguageOk
 
-`func (o *CsvFileRequest) GetSourceLanguageOk() (*string, bool)`
+`func (o *XmlFileRequest) GetSourceLanguageOk() (*string, bool)`
 
 GetSourceLanguageOk returns a tuple with the SourceLanguage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSourceLanguage
 
-`func (o *CsvFileRequest) SetSourceLanguage(v string)`
+`func (o *XmlFileRequest) SetSourceLanguage(v string)`
 
 SetSourceLanguage sets SourceLanguage field to given value.
 
 
 ### GetTargetLanguages
 
-`func (o *CsvFileRequest) GetTargetLanguages() []string`
+`func (o *XmlFileRequest) GetTargetLanguages() []string`
 
 GetTargetLanguages returns the TargetLanguages field if non-nil, zero value otherwise.
 
 ### GetTargetLanguagesOk
 
-`func (o *CsvFileRequest) GetTargetLanguagesOk() (*[]string, bool)`
+`func (o *XmlFileRequest) GetTargetLanguagesOk() (*[]string, bool)`
 
 GetTargetLanguagesOk returns a tuple with the TargetLanguages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetLanguages
 
-`func (o *CsvFileRequest) SetTargetLanguages(v []string)`
+`func (o *XmlFileRequest) SetTargetLanguages(v []string)`
 
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
 ### GetOriginalFileName
 
-`func (o *CsvFileRequest) GetOriginalFileName() string`
+`func (o *XmlFileRequest) GetOriginalFileName() string`
 
 GetOriginalFileName returns the OriginalFileName field if non-nil, zero value otherwise.
 
 ### GetOriginalFileNameOk
 
-`func (o *CsvFileRequest) GetOriginalFileNameOk() (*string, bool)`
+`func (o *XmlFileRequest) GetOriginalFileNameOk() (*string, bool)`
 
 GetOriginalFileNameOk returns a tuple with the OriginalFileName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOriginalFileName
 
-`func (o *CsvFileRequest) SetOriginalFileName(v string)`
+`func (o *XmlFileRequest) SetOriginalFileName(v string)`
 
 SetOriginalFileName sets OriginalFileName field to given value.
 
 ### HasOriginalFileName
 
-`func (o *CsvFileRequest) HasOriginalFileName() bool`
+`func (o *XmlFileRequest) HasOriginalFileName() bool`
 
 HasOriginalFileName returns a boolean if a field has been set.
 
 ### SetOriginalFileNameNil
 
-`func (o *CsvFileRequest) SetOriginalFileNameNil(b bool)`
+`func (o *XmlFileRequest) SetOriginalFileNameNil(b bool)`
 
  SetOriginalFileNameNil sets the value for OriginalFileName to be an explicit nil
 
 ### UnsetOriginalFileName
-`func (o *CsvFileRequest) UnsetOriginalFileName()`
+`func (o *XmlFileRequest) UnsetOriginalFileName()`
 
 UnsetOriginalFileName ensures that no value is present for OriginalFileName, not even an explicit nil
 ### GetUrl
 
-`func (o *CsvFileRequest) GetUrl() string`
+`func (o *XmlFileRequest) GetUrl() string`
 
 GetUrl returns the Url field if non-nil, zero value otherwise.
 
 ### GetUrlOk
 
-`func (o *CsvFileRequest) GetUrlOk() (*string, bool)`
+`func (o *XmlFileRequest) GetUrlOk() (*string, bool)`
 
 GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUrl
 
-`func (o *CsvFileRequest) SetUrl(v string)`
+`func (o *XmlFileRequest) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
 
 
 ### GetOrigin
 
-`func (o *CsvFileRequest) GetOrigin() string`
+`func (o *XmlFileRequest) GetOrigin() string`
 
 GetOrigin returns the Origin field if non-nil, zero value otherwise.
 
 ### GetOriginOk
 
-`func (o *CsvFileRequest) GetOriginOk() (*string, bool)`
+`func (o *XmlFileRequest) GetOriginOk() (*string, bool)`
 
 GetOriginOk returns a tuple with the Origin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrigin
 
-`func (o *CsvFileRequest) SetOrigin(v string)`
+`func (o *XmlFileRequest) SetOrigin(v string)`
 
 SetOrigin sets Origin field to given value.
 
 ### HasOrigin
 
-`func (o *CsvFileRequest) HasOrigin() bool`
+`func (o *XmlFileRequest) HasOrigin() bool`
 
 HasOrigin returns a boolean if a field has been set.
 
 ### SetOriginNil
 
-`func (o *CsvFileRequest) SetOriginNil(b bool)`
+`func (o *XmlFileRequest) SetOriginNil(b bool)`
 
  SetOriginNil sets the value for Origin to be an explicit nil
 
 ### UnsetOrigin
-`func (o *CsvFileRequest) UnsetOrigin()`
+`func (o *XmlFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
 ### GetIsNeedAlignment
 
-`func (o *CsvFileRequest) GetIsNeedAlignment() bool`
+`func (o *XmlFileRequest) GetIsNeedAlignment() bool`
 
 GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
 
 ### GetIsNeedAlignmentOk
 
-`func (o *CsvFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+`func (o *XmlFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
 
 GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsNeedAlignment
 
-`func (o *CsvFileRequest) SetIsNeedAlignment(v bool)`
+`func (o *XmlFileRequest) SetIsNeedAlignment(v bool)`
 
 SetIsNeedAlignment sets IsNeedAlignment field to given value.
 
 ### HasIsNeedAlignment
 
-`func (o *CsvFileRequest) HasIsNeedAlignment() bool`
+`func (o *XmlFileRequest) HasIsNeedAlignment() bool`
 
 HasIsNeedAlignment returns a boolean if a field has been set.
 
 ### GetTranslationDictionary
 
-`func (o *CsvFileRequest) GetTranslationDictionary() map[string]string`
+`func (o *XmlFileRequest) GetTranslationDictionary() map[string]string`
 
 GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
 
 ### GetTranslationDictionaryOk
 
-`func (o *CsvFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+`func (o *XmlFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
 
 GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTranslationDictionary
 
-`func (o *CsvFileRequest) SetTranslationDictionary(v map[string]string)`
+`func (o *XmlFileRequest) SetTranslationDictionary(v map[string]string)`
 
 SetTranslationDictionary sets TranslationDictionary field to given value.
 
 ### HasTranslationDictionary
 
-`func (o *CsvFileRequest) HasTranslationDictionary() bool`
+`func (o *XmlFileRequest) HasTranslationDictionary() bool`
 
 HasTranslationDictionary returns a boolean if a field has been set.
 
 ### SetTranslationDictionaryNil
 
-`func (o *CsvFileRequest) SetTranslationDictionaryNil(b bool)`
+`func (o *XmlFileRequest) SetTranslationDictionaryNil(b bool)`
 
  SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
 
 ### UnsetTranslationDictionary
-`func (o *CsvFileRequest) UnsetTranslationDictionary()`
+`func (o *XmlFileRequest) UnsetTranslationDictionary()`
 
 UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
-`func (o *CsvFileRequest) GetSavingMode() string`
+`func (o *XmlFileRequest) GetSavingMode() string`
 
 GetSavingMode returns the SavingMode field if non-nil, zero value otherwise.
 
 ### GetSavingModeOk
 
-`func (o *CsvFileRequest) GetSavingModeOk() (*string, bool)`
+`func (o *XmlFileRequest) GetSavingModeOk() (*string, bool)`
 
 GetSavingModeOk returns a tuple with the SavingMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSavingMode
 
-`func (o *CsvFileRequest) SetSavingMode(v string)`
+`func (o *XmlFileRequest) SetSavingMode(v string)`
 
 SetSavingMode sets SavingMode field to given value.
 
 ### HasSavingMode
 
-`func (o *CsvFileRequest) HasSavingMode() bool`
+`func (o *XmlFileRequest) HasSavingMode() bool`
 
 HasSavingMode returns a boolean if a field has been set.
 
-### GetFormat
+### GetIgnoreList
 
-`func (o *CsvFileRequest) GetFormat() string`
+`func (o *XmlFileRequest) GetIgnoreList() []string`
 
-GetFormat returns the Format field if non-nil, zero value otherwise.
+GetIgnoreList returns the IgnoreList field if non-nil, zero value otherwise.
 
-### GetFormatOk
+### GetIgnoreListOk
 
-`func (o *CsvFileRequest) GetFormatOk() (*string, bool)`
+`func (o *XmlFileRequest) GetIgnoreListOk() (*[]string, bool)`
 
-GetFormatOk returns a tuple with the Format field if it's non-nil, zero value otherwise
+GetIgnoreListOk returns a tuple with the IgnoreList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFormat
+### SetIgnoreList
 
-`func (o *CsvFileRequest) SetFormat(v string)`
+`func (o *XmlFileRequest) SetIgnoreList(v []string)`
 
-SetFormat sets Format field to given value.
+SetIgnoreList sets IgnoreList field to given value.
 
-### HasFormat
+### HasIgnoreList
 
-`func (o *CsvFileRequest) HasFormat() bool`
+`func (o *XmlFileRequest) HasIgnoreList() bool`
 
-HasFormat returns a boolean if a field has been set.
+HasIgnoreList returns a boolean if a field has been set.
 
-### GetOutputFormat
+### SetIgnoreListNil
 
-`func (o *CsvFileRequest) GetOutputFormat() string`
+`func (o *XmlFileRequest) SetIgnoreListNil(b bool)`
 
-GetOutputFormat returns the OutputFormat field if non-nil, zero value otherwise.
+ SetIgnoreListNil sets the value for IgnoreList to be an explicit nil
 
-### GetOutputFormatOk
+### UnsetIgnoreList
+`func (o *XmlFileRequest) UnsetIgnoreList()`
 
-`func (o *CsvFileRequest) GetOutputFormatOk() (*string, bool)`
+UnsetIgnoreList ensures that no value is present for IgnoreList, not even an explicit nil
+### GetIsWhiteList
 
-GetOutputFormatOk returns a tuple with the OutputFormat field if it's non-nil, zero value otherwise
+`func (o *XmlFileRequest) GetIsWhiteList() bool`
+
+GetIsWhiteList returns the IsWhiteList field if non-nil, zero value otherwise.
+
+### GetIsWhiteListOk
+
+`func (o *XmlFileRequest) GetIsWhiteListOk() (*bool, bool)`
+
+GetIsWhiteListOk returns a tuple with the IsWhiteList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOutputFormat
+### SetIsWhiteList
 
-`func (o *CsvFileRequest) SetOutputFormat(v string)`
+`func (o *XmlFileRequest) SetIsWhiteList(v bool)`
 
-SetOutputFormat sets OutputFormat field to given value.
+SetIsWhiteList sets IsWhiteList field to given value.
 
+### HasIsWhiteList
 
-### GetSeparator
+`func (o *XmlFileRequest) HasIsWhiteList() bool`
 
-`func (o *CsvFileRequest) GetSeparator() string`
+HasIsWhiteList returns a boolean if a field has been set.
 
-GetSeparator returns the Separator field if non-nil, zero value otherwise.
-
-### GetSeparatorOk
-
-`func (o *CsvFileRequest) GetSeparatorOk() (*string, bool)`
-
-GetSeparatorOk returns a tuple with the Separator field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSeparator
-
-`func (o *CsvFileRequest) SetSeparator(v string)`
-
-SetSeparator sets Separator field to given value.
-
-### HasSeparator
-
-`func (o *CsvFileRequest) HasSeparator() bool`
-
-HasSeparator returns a boolean if a field has been set.
-
-### SetSeparatorNil
-
-`func (o *CsvFileRequest) SetSeparatorNil(b bool)`
-
- SetSeparatorNil sets the value for Separator to be an explicit nil
-
-### UnsetSeparator
-`func (o *CsvFileRequest) UnsetSeparator()`
-
-UnsetSeparator ensures that no value is present for Separator, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

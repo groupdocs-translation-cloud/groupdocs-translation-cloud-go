@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Texts** | Pointer to **[]string** | Text array to translate | [optional] 
 **Origin** | Pointer to **NullableString** | For analysis only | [optional] 
 **ContainsMarkdown** | Pointer to **bool** | Set to true if you want to handle markdown in text | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 
 ## Methods
 
@@ -194,6 +195,41 @@ SetContainsMarkdown sets ContainsMarkdown field to given value.
 
 HasContainsMarkdown returns a boolean if a field has been set.
 
+### GetTranslationDictionary
+
+`func (o *TextRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *TextRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *TextRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *TextRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *TextRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *TextRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

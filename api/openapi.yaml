@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Translation SDK
-  version: 24.3.0
+  version: 25.3.0
 servers:
 - description: GroupDocs.Translation server
   url: https://api.groupdocs.cloud/v2.0/translation/
@@ -266,29 +266,6 @@ paths:
         name: format
         required: false
         schema:
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Xls
-          - Xlsx
-          - Xlsm
-          - Ppt
-          - Pptx
-          - Pptm
-          - Txt
-          - Pdf
-          - Md
-          - Resx
-          - Html
-          - Rtf
-          - Odt
-          - Ods
-          - Odp
-          - Csv
-          - Tsv
-          - Srt
           type: string
         style: form
       requestBody:
@@ -402,6 +379,63 @@ paths:
       summary: Translate Markdown files
       tags:
       - Translation
+  /media-to-file:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaToFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate audio or video and return file as a result
+      tags:
+      - Translation
+  /media-to-text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaToTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate audio or video and return text as a result
+      tags:
+      - Translation
+  /summarize-media:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaToFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Summarize audio or video, translate it  and return file as a result"
+      tags:
+      - Translation
   /image-to-file:
     post:
       requestBody:
@@ -438,6 +472,25 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Translate text on image or scanned pdf
+      tags:
+      - Translation
+  /summarize-image:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize and translate image or scanned pdf and return file
       tags:
       - Translation
   /pdf:
@@ -555,6 +608,63 @@ paths:
       summary: Translate any supported file
       tags:
       - Translation
+  /auto/slang:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Slang translation of any supported file
+      tags:
+      - Translation
+  /auto/classification:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Domain Ttanslation of any supported file based on classification
+      tags:
+      - Translation
+  /summarize-document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize and translate document file
+      tags:
+      - Translation
   /text:
     post:
       requestBody:
@@ -574,6 +684,82 @@ paths:
       summary: Translate text
       tags:
       - Translation
+  /text/slang:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate slang
+      tags:
+      - Translation
+  /text/classification:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Domain text translation based on classification
+      tags:
+      - Translation
+  /text/medical:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate medical
+      tags:
+      - Translation
+  /summarize-text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Summarize and translate text
+      tags:
+      - Translation
   /document:
     post:
       requestBody:
@@ -591,6 +777,25 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: "Translate Microsoft Word documents, rtf, txt, odt"
+      tags:
+      - Translation
+  /xml:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/XmlFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate XML files
       tags:
       - Translation
 components:
@@ -620,6 +825,7 @@ components:
         format: format
         outFormat: outFormat
         masters: true
+        summarized: true
         separator: separator
         url: url
         isPaid: true
@@ -639,6 +845,10 @@ components:
         - 1
         details:
           key: details
+        model: General
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         formatting: true
       properties:
         format:
@@ -660,6 +870,9 @@ components:
             type: integer
           nullable: true
           type: array
+        summarized:
+          description: If summarization required
+          type: boolean
         url:
           description: Link to file for translation
           nullable: true
@@ -674,6 +887,16 @@ components:
         formatting:
           description: "If document's formatting should be preserved, default true"
           type: boolean
+        isNeedAlignment:
+          description: If need result like source formated text.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         origin:
           description: for analysis only
           nullable: true
@@ -734,6 +957,13 @@ components:
           description: Details of the requests. Using for e2e tracking
           nullable: true
           type: object
+        model:
+          description: Text array to translate
+          enum:
+          - General
+          - Slang
+          - Classification
+          type: string
       type: object
     CloudFileResponse:
       additionalProperties: false
@@ -791,6 +1021,7 @@ components:
           format: format
           outFormat: outFormat
           masters: true
+          summarized: true
           separator: separator
           url: url
           isPaid: true
@@ -810,6 +1041,10 @@ components:
           - 1
           details:
             key: details
+          model: General
+          isNeedAlignment: true
+          translationDictionary:
+            key: translationDictionary
           formatting: true
         urls:
           key:
@@ -925,10 +1160,12 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
         format: Unknown
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         separator: separator
         sourceLanguage: en
@@ -944,11 +1181,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -956,12 +1188,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -990,6 +1233,7 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     FileRequest:
       additionalProperties: false
@@ -1009,7 +1253,11 @@ components:
             - 2
             - 2
         origin: origin
+        isWhiteList: true
         format: Unknown
+        ignoreList:
+        - ignoreList
+        - ignoreList
         masters: false
         separator: separator
         shortcodedict:
@@ -1025,12 +1273,14 @@ components:
           - frontMatterList
         - - frontMatterList
           - frontMatterList
-        file: file
         route: route
         savingMode: Files
         elements:
         - 0
         - 0
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         formatting: true
@@ -1045,11 +1295,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1057,12 +1302,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1096,6 +1352,21 @@ components:
           - Csv
           - Tsv
           - Srt
+          - Pdfx
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
           example: Unknown
           type: string
         outputFormat:
@@ -1150,8 +1421,19 @@ components:
             type: array
           nullable: true
           type: array
+        ignoreList:
+          description: "List of elements for Xml, Json and Yaml formats. Determines\
+            \ which items should be blacklisted or whitelisted for processing depending\
+            \ on GroupDocs.Translation.ApiGateway.DTO.FileRequest.IsWhiteList."
+          items:
+            type: string
+          nullable: true
+          type: array
+        isWhiteList:
+          description: Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.FileRequest.IgnoreList
+            should be allocated. The default is the black list.
+          type: boolean
       required:
-      - File
       - Source
       - Targets
       type: object
@@ -1196,9 +1478,11 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         url: url
@@ -1213,11 +1497,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1225,12 +1504,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1337,7 +1627,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         ocrformat: Pdf
         route: route
         pages:
@@ -1345,6 +1634,9 @@ components:
         - 6
         savingMode: Files
         rotationAngle: 0
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         formatting: true
@@ -1359,11 +1651,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1371,12 +1658,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1432,6 +1730,7 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     ImageToTextRequest:
       additionalProperties: false
@@ -1529,13 +1828,15 @@ components:
           - frontMatterList
         - - frontMatterList
           - frontMatterList
-        file: file
         shortCodeList:
           key:
           - shortCodeList
           - shortCodeList
         origin: origin
         savingMode: Files
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         url: url
@@ -1550,11 +1851,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1562,12 +1858,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1600,6 +1907,214 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
+      type: object
+    MediaToFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        origin: origin
+        format: Unknown
+        url: url
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        route: route
+        savingMode: Files
+        fragments:
+        - fragments
+        - fragments
+        interval: 0
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
+        outputFormat: outputFormat
+        sourceLanguage: en
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          minLength: 1
+          type: string
+        origin:
+          description: Url or name of the application using this SDK. Not required.
+          nullable: true
+          type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Mp3
+          description: Input file format
+          enum:
+          - Unknown
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
+          example: Unknown
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        fragments:
+          description: Time fragments that require translation
+          items:
+            type: string
+          nullable: true
+          type: array
+        interval:
+          description: Define intervals of timestampts in the resulting file
+          format: int32
+          type: integer
+        route:
+          description: endpoints route
+          nullable: true
+          type: string
+      required:
+      - format
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      - url
+      type: object
+    MediaToTextRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        route: route
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        fragments:
+        - fragments
+        - fragments
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          minLength: 1
+          type: string
+        origin:
+          description: Url or name of the application using this SDK. Not required.
+          nullable: true
+          type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Mp3
+          description: Input file format
+          enum:
+          - Unknown
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
+          example: Unknown
+          type: string
+        fragments:
+          description: Time fragments that require translation
+          items:
+            type: string
+          nullable: true
+          type: array
+        route:
+          description: endpoints route
+          nullable: true
+          type: string
+      required:
+      - format
+      - sourceLanguage
+      - targetLanguages
+      - url
       type: object
     PdfFileRequest:
       additionalProperties: false
@@ -1609,13 +2124,15 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         pages:
         - 0
         - 0
         origin: origin
         savingMode: Files
         preserveFormatting: true
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         url: url
@@ -1630,11 +2147,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1642,12 +2154,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1675,6 +2198,7 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     PresentationFileRequest:
       additionalProperties: false
@@ -1687,11 +2211,13 @@ components:
         slides:
         - 0
         - 0
-        file: file
         origin: origin
         savingMode: Files
         format: Unknown
         masters: false
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         url: url
@@ -1706,11 +2232,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1718,12 +2239,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1771,7 +2303,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         worksheets:
         - 0
         - 0
@@ -1791,6 +2322,9 @@ components:
         origin: origin
         savingMode: Files
         format: Unknown
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: Xls
         sourceLanguage: en
         url: url
@@ -1805,11 +2339,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1817,12 +2346,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1876,6 +2416,7 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     SrtFileRequest:
       additionalProperties: false
@@ -1884,9 +2425,11 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         sourceLanguage: en
         url: url
       properties:
@@ -1900,11 +2443,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1912,12 +2450,23 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
         origin:
-          description: Url or name of application using this SDK. Not required.
+          description: Url or name of the application using this SDK. Not required.
           nullable: true
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1928,6 +2477,7 @@ components:
       required:
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     StatusResponse:
       additionalProperties: false
@@ -1965,7 +2515,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         pages:
         - 0
         - 0
@@ -1973,6 +2522,9 @@ components:
         origin: origin
         format: Unknown
         preserveFormatting: true
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
         outputFormat: outputFormat
         sourceLanguage: en
         url: url
@@ -1987,11 +2539,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1999,8 +2546,19 @@ components:
         url:
           description: "Link to file for translation. Ignore, if \"file\" property\
             \ not null"
-          nullable: true
+          minLength: 1
           type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
         savingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -2046,6 +2604,7 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      - url
       type: object
     TextRequest:
       additionalProperties: false
@@ -2058,6 +2617,8 @@ components:
         - texts
         origin: origin
         containsMarkdown: true
+        translationDictionary:
+          key: translationDictionary
         sourceLanguage: sourceLanguage
       properties:
         sourceLanguage:
@@ -2083,6 +2644,13 @@ components:
         containsMarkdown:
           description: Set to true if you want to handle markdown in text
           type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
       type: object
     UrlFileInfo:
       additionalProperties: false
@@ -2129,6 +2697,83 @@ components:
             $ref: '#/components/schemas/StringStringTuple'
           nullable: true
           type: array
+      type: object
+    XmlFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        origin: origin
+        savingMode: Files
+        isWhiteList: true
+        ignoreList:
+        - ignoreList
+        - ignoreList
+        isNeedAlignment: true
+        translationDictionary:
+          key: translationDictionary
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          minLength: 1
+          type: string
+        origin:
+          description: Url or name of the application using this SDK. Not required.
+          nullable: true
+          type: string
+        isNeedAlignment:
+          description: Do result formating like the source. This option needs more
+            expensive requests.
+          type: boolean
+        translationDictionary:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Set a specific translation between source and target words.
+          nullable: true
+          type: object
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        ignoreList:
+          description: "List of elements for Xml, Json and Yaml formats. Determines\
+            \ which items should be blacklisted or whitelisted for processing depending\
+            \ on GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IsWhiteList."
+          items:
+            type: string
+          nullable: true
+          type: array
+        isWhiteList:
+          description: Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IgnoreList
+            should be allocated. The default is the black list.
+          type: boolean
+      required:
+      - sourceLanguage
+      - targetLanguages
+      - url
       type: object
     _file_upload_post_request:
       properties:

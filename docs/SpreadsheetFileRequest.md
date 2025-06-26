@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | **string** | Language of original file | [default to "en"]
 **TargetLanguages** | **[]string** | List of target languages | 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
-**Origin** | Pointer to **NullableString** | Url or name of application using this SDK. Not required. | [optional] 
+**Url** | **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | 
+**Origin** | Pointer to **NullableString** | Url or name of the application using this SDK. Not required. | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **Format** | **string** | Input file format | [default to "Xlsx"]
 **OutputFormat** | **string** | output file format | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSpreadsheetFileRequest
 
-`func NewSpreadsheetFileRequest(sourceLanguage string, targetLanguages []string, format string, outputFormat string, ) *SpreadsheetFileRequest`
+`func NewSpreadsheetFileRequest(sourceLanguage string, targetLanguages []string, url string, format string, outputFormat string, ) *SpreadsheetFileRequest`
 
 NewSpreadsheetFileRequest instantiates a new SpreadsheetFileRequest object
 This constructor will assign default values to properties that have it defined,
@@ -75,41 +76,6 @@ and a boolean to check if the value has been set.
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
-### GetFile
-
-`func (o *SpreadsheetFileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *SpreadsheetFileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *SpreadsheetFileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *SpreadsheetFileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *SpreadsheetFileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *SpreadsheetFileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *SpreadsheetFileRequest) GetOriginalFileName() string`
@@ -164,22 +130,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *SpreadsheetFileRequest) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *SpreadsheetFileRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *SpreadsheetFileRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetOrigin
 
 `func (o *SpreadsheetFileRequest) GetOrigin() string`
@@ -215,6 +166,66 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *SpreadsheetFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetIsNeedAlignment
+
+`func (o *SpreadsheetFileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *SpreadsheetFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *SpreadsheetFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *SpreadsheetFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *SpreadsheetFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *SpreadsheetFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *SpreadsheetFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *SpreadsheetFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *SpreadsheetFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *SpreadsheetFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *SpreadsheetFileRequest) GetSavingMode() string`

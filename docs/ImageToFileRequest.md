@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | **string** | Language of original file | [default to "en"]
 **TargetLanguages** | **[]string** | List of target languages | 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
-**Origin** | Pointer to **NullableString** | Url or name of application using this SDK. Not required. | [optional] 
+**Url** | **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | 
+**Origin** | Pointer to **NullableString** | Url or name of the application using this SDK. Not required. | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **Format** | Pointer to **string** | Original file format | [optional] [default to "Unknown"]
 **Ocrformat** | **string** | File format after recognition | [default to "Pdf"]
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewImageToFileRequest
 
-`func NewImageToFileRequest(sourceLanguage string, targetLanguages []string, ocrformat string, outputFormat string, ) *ImageToFileRequest`
+`func NewImageToFileRequest(sourceLanguage string, targetLanguages []string, url string, ocrformat string, outputFormat string, ) *ImageToFileRequest`
 
 NewImageToFileRequest instantiates a new ImageToFileRequest object
 This constructor will assign default values to properties that have it defined,
@@ -78,41 +79,6 @@ and a boolean to check if the value has been set.
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
-### GetFile
-
-`func (o *ImageToFileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *ImageToFileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *ImageToFileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *ImageToFileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *ImageToFileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *ImageToFileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *ImageToFileRequest) GetOriginalFileName() string`
@@ -167,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *ImageToFileRequest) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *ImageToFileRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *ImageToFileRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetOrigin
 
 `func (o *ImageToFileRequest) GetOrigin() string`
@@ -218,6 +169,66 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *ImageToFileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetIsNeedAlignment
+
+`func (o *ImageToFileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *ImageToFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *ImageToFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *ImageToFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *ImageToFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *ImageToFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *ImageToFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *ImageToFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *ImageToFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *ImageToFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *ImageToFileRequest) GetSavingMode() string`

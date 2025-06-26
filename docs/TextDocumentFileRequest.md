@@ -6,9 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | **string** | Language of original file | [default to "en"]
 **TargetLanguages** | **[]string** | List of target languages | 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
+**Url** | **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **Format** | **string** | Input file format | [default to "Docx"]
 **OutputFormat** | **string** | output file format | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewTextDocumentFileRequest
 
-`func NewTextDocumentFileRequest(sourceLanguage string, targetLanguages []string, format string, outputFormat string, ) *TextDocumentFileRequest`
+`func NewTextDocumentFileRequest(sourceLanguage string, targetLanguages []string, url string, format string, outputFormat string, ) *TextDocumentFileRequest`
 
 NewTextDocumentFileRequest instantiates a new TextDocumentFileRequest object
 This constructor will assign default values to properties that have it defined,
@@ -75,41 +76,6 @@ and a boolean to check if the value has been set.
 SetTargetLanguages sets TargetLanguages field to given value.
 
 
-### GetFile
-
-`func (o *TextDocumentFileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *TextDocumentFileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *TextDocumentFileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *TextDocumentFileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *TextDocumentFileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *TextDocumentFileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *TextDocumentFileRequest) GetOriginalFileName() string`
@@ -164,22 +130,67 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *TextDocumentFileRequest) HasUrl() bool`
+### GetIsNeedAlignment
 
-HasUrl returns a boolean if a field has been set.
+`func (o *TextDocumentFileRequest) GetIsNeedAlignment() bool`
 
-### SetUrlNil
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
 
-`func (o *TextDocumentFileRequest) SetUrlNil(b bool)`
+### GetIsNeedAlignmentOk
 
- SetUrlNil sets the value for Url to be an explicit nil
+`func (o *TextDocumentFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
 
-### UnsetUrl
-`func (o *TextDocumentFileRequest) UnsetUrl()`
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
+### SetIsNeedAlignment
+
+`func (o *TextDocumentFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *TextDocumentFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *TextDocumentFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *TextDocumentFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *TextDocumentFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *TextDocumentFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *TextDocumentFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *TextDocumentFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *TextDocumentFileRequest) GetSavingMode() string`

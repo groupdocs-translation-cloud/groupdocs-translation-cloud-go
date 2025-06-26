@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | Pointer to **string** | Language of original file | [optional] [default to "en"]
 **TargetLanguages** | Pointer to **[]string** | List of target languages | [optional] 
-**File** | Pointer to **NullableString** | File as byte array | [optional] 
 **OriginalFileName** | Pointer to **NullableString** | Type in the file name. If null will be as request ID. | [optional] 
-**Url** | Pointer to **NullableString** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
-**Origin** | Pointer to **NullableString** | Url or name of application using this SDK. Not required. | [optional] 
+**Url** | Pointer to **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
+**Origin** | Pointer to **NullableString** | Url or name of the application using this SDK. Not required. | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | Do result formating like the source. This option needs more expensive requests. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **SavingMode** | Pointer to **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 
 **Format** | Pointer to **string** | Input file format | [optional] [default to "Unknown"]
 **OutputFormat** | Pointer to **string** | output file format | [optional] 
@@ -21,6 +22,8 @@ Name | Type | Description | Notes
 **Ranges** | Pointer to [**map[string]WorksheetData**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
 **Shortcodedict** | Pointer to **map[string][]string** | Dictionary of short code names and parameters names to translate | [optional] 
 **FrontMatterList** | Pointer to **[][]string** | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional] 
+**IgnoreList** | Pointer to **[]string** | List of elements for Xml, Json and Yaml formats. Determines which items should be blacklisted or whitelisted for processing depending on GroupDocs.Translation.ApiGateway.DTO.FileRequest.IsWhiteList. | [optional] 
+**IsWhiteList** | Pointer to **bool** | Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.FileRequest.IgnoreList should be allocated. The default is the black list. | [optional] 
 
 ## Methods
 
@@ -91,41 +94,6 @@ SetTargetLanguages sets TargetLanguages field to given value.
 
 HasTargetLanguages returns a boolean if a field has been set.
 
-### GetFile
-
-`func (o *FileRequest) GetFile() string`
-
-GetFile returns the File field if non-nil, zero value otherwise.
-
-### GetFileOk
-
-`func (o *FileRequest) GetFileOk() (*string, bool)`
-
-GetFileOk returns a tuple with the File field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFile
-
-`func (o *FileRequest) SetFile(v string)`
-
-SetFile sets File field to given value.
-
-### HasFile
-
-`func (o *FileRequest) HasFile() bool`
-
-HasFile returns a boolean if a field has been set.
-
-### SetFileNil
-
-`func (o *FileRequest) SetFileNil(b bool)`
-
- SetFileNil sets the value for File to be an explicit nil
-
-### UnsetFile
-`func (o *FileRequest) UnsetFile()`
-
-UnsetFile ensures that no value is present for File, not even an explicit nil
 ### GetOriginalFileName
 
 `func (o *FileRequest) GetOriginalFileName() string`
@@ -186,16 +154,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *FileRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *FileRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetOrigin
 
 `func (o *FileRequest) GetOrigin() string`
@@ -231,6 +189,66 @@ HasOrigin returns a boolean if a field has been set.
 `func (o *FileRequest) UnsetOrigin()`
 
 UnsetOrigin ensures that no value is present for Origin, not even an explicit nil
+### GetIsNeedAlignment
+
+`func (o *FileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *FileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *FileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *FileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *FileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *FileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *FileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *FileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *FileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *FileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetSavingMode
 
 `func (o *FileRequest) GetSavingMode() string`
@@ -566,6 +584,66 @@ HasFrontMatterList returns a boolean if a field has been set.
 `func (o *FileRequest) UnsetFrontMatterList()`
 
 UnsetFrontMatterList ensures that no value is present for FrontMatterList, not even an explicit nil
+### GetIgnoreList
+
+`func (o *FileRequest) GetIgnoreList() []string`
+
+GetIgnoreList returns the IgnoreList field if non-nil, zero value otherwise.
+
+### GetIgnoreListOk
+
+`func (o *FileRequest) GetIgnoreListOk() (*[]string, bool)`
+
+GetIgnoreListOk returns a tuple with the IgnoreList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIgnoreList
+
+`func (o *FileRequest) SetIgnoreList(v []string)`
+
+SetIgnoreList sets IgnoreList field to given value.
+
+### HasIgnoreList
+
+`func (o *FileRequest) HasIgnoreList() bool`
+
+HasIgnoreList returns a boolean if a field has been set.
+
+### SetIgnoreListNil
+
+`func (o *FileRequest) SetIgnoreListNil(b bool)`
+
+ SetIgnoreListNil sets the value for IgnoreList to be an explicit nil
+
+### UnsetIgnoreList
+`func (o *FileRequest) UnsetIgnoreList()`
+
+UnsetIgnoreList ensures that no value is present for IgnoreList, not even an explicit nil
+### GetIsWhiteList
+
+`func (o *FileRequest) GetIsWhiteList() bool`
+
+GetIsWhiteList returns the IsWhiteList field if non-nil, zero value otherwise.
+
+### GetIsWhiteListOk
+
+`func (o *FileRequest) GetIsWhiteListOk() (*bool, bool)`
+
+GetIsWhiteListOk returns a tuple with the IsWhiteList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsWhiteList
+
+`func (o *FileRequest) SetIsWhiteList(v bool)`
+
+SetIsWhiteList sets IsWhiteList field to given value.
+
+### HasIsWhiteList
+
+`func (o *FileRequest) HasIsWhiteList() bool`
+
+HasIsWhiteList returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

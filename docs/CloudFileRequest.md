@@ -8,10 +8,13 @@ Name | Type | Description | Notes
 **OutFormat** | Pointer to **NullableString** | output file format | [optional] 
 **RequestId** | Pointer to **NullableString** | id of request | [optional] 
 **Ids** | Pointer to **[]int32** | Language pairs to translate | [optional] 
+**Summarized** | Pointer to **bool** | If summarization required | [optional] 
 **Url** | Pointer to **NullableString** | Link to file for translation | [optional] 
 **Size** | Pointer to **int64** | File size | [optional] 
 **Masters** | Pointer to **bool** | If translate master slides | [optional] 
 **Formatting** | Pointer to **bool** | If document&#39;s formatting should be preserved, default true | [optional] 
+**IsNeedAlignment** | Pointer to **bool** | If need result like source formated text. | [optional] 
+**TranslationDictionary** | Pointer to **map[string]string** | Set a specific translation between source and target words. | [optional] 
 **Origin** | Pointer to **NullableString** | for analysis only | [optional] 
 **Elements** | Pointer to **[]int32** | List of slides to translate | [optional] 
 **Ranges** | Pointer to [**map[string]WorksheetData**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
@@ -22,6 +25,7 @@ Name | Type | Description | Notes
 **IsPaid** | Pointer to **bool** | Set true if paid user | [optional] 
 **SavingMode** | Pointer to **string** | Toggle files saving mode | [optional] 
 **Details** | Pointer to **map[string]string** | Details of the requests. Using for e2e tracking | [optional] 
+**Model** | Pointer to **string** | Text array to translate | [optional] 
 
 ## Methods
 
@@ -182,6 +186,31 @@ HasIds returns a boolean if a field has been set.
 `func (o *CloudFileRequest) UnsetIds()`
 
 UnsetIds ensures that no value is present for Ids, not even an explicit nil
+### GetSummarized
+
+`func (o *CloudFileRequest) GetSummarized() bool`
+
+GetSummarized returns the Summarized field if non-nil, zero value otherwise.
+
+### GetSummarizedOk
+
+`func (o *CloudFileRequest) GetSummarizedOk() (*bool, bool)`
+
+GetSummarizedOk returns a tuple with the Summarized field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSummarized
+
+`func (o *CloudFileRequest) SetSummarized(v bool)`
+
+SetSummarized sets Summarized field to given value.
+
+### HasSummarized
+
+`func (o *CloudFileRequest) HasSummarized() bool`
+
+HasSummarized returns a boolean if a field has been set.
+
 ### GetUrl
 
 `func (o *CloudFileRequest) GetUrl() string`
@@ -292,6 +321,66 @@ SetFormatting sets Formatting field to given value.
 
 HasFormatting returns a boolean if a field has been set.
 
+### GetIsNeedAlignment
+
+`func (o *CloudFileRequest) GetIsNeedAlignment() bool`
+
+GetIsNeedAlignment returns the IsNeedAlignment field if non-nil, zero value otherwise.
+
+### GetIsNeedAlignmentOk
+
+`func (o *CloudFileRequest) GetIsNeedAlignmentOk() (*bool, bool)`
+
+GetIsNeedAlignmentOk returns a tuple with the IsNeedAlignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNeedAlignment
+
+`func (o *CloudFileRequest) SetIsNeedAlignment(v bool)`
+
+SetIsNeedAlignment sets IsNeedAlignment field to given value.
+
+### HasIsNeedAlignment
+
+`func (o *CloudFileRequest) HasIsNeedAlignment() bool`
+
+HasIsNeedAlignment returns a boolean if a field has been set.
+
+### GetTranslationDictionary
+
+`func (o *CloudFileRequest) GetTranslationDictionary() map[string]string`
+
+GetTranslationDictionary returns the TranslationDictionary field if non-nil, zero value otherwise.
+
+### GetTranslationDictionaryOk
+
+`func (o *CloudFileRequest) GetTranslationDictionaryOk() (*map[string]string, bool)`
+
+GetTranslationDictionaryOk returns a tuple with the TranslationDictionary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTranslationDictionary
+
+`func (o *CloudFileRequest) SetTranslationDictionary(v map[string]string)`
+
+SetTranslationDictionary sets TranslationDictionary field to given value.
+
+### HasTranslationDictionary
+
+`func (o *CloudFileRequest) HasTranslationDictionary() bool`
+
+HasTranslationDictionary returns a boolean if a field has been set.
+
+### SetTranslationDictionaryNil
+
+`func (o *CloudFileRequest) SetTranslationDictionaryNil(b bool)`
+
+ SetTranslationDictionaryNil sets the value for TranslationDictionary to be an explicit nil
+
+### UnsetTranslationDictionary
+`func (o *CloudFileRequest) UnsetTranslationDictionary()`
+
+UnsetTranslationDictionary ensures that no value is present for TranslationDictionary, not even an explicit nil
 ### GetOrigin
 
 `func (o *CloudFileRequest) GetOrigin() string`
@@ -622,6 +711,31 @@ HasDetails returns a boolean if a field has been set.
 `func (o *CloudFileRequest) UnsetDetails()`
 
 UnsetDetails ensures that no value is present for Details, not even an explicit nil
+### GetModel
+
+`func (o *CloudFileRequest) GetModel() string`
+
+GetModel returns the Model field if non-nil, zero value otherwise.
+
+### GetModelOk
+
+`func (o *CloudFileRequest) GetModelOk() (*string, bool)`
+
+GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModel
+
+`func (o *CloudFileRequest) SetModel(v string)`
+
+SetModel sets Model field to given value.
+
+### HasModel
+
+`func (o *CloudFileRequest) HasModel() bool`
+
+HasModel returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
